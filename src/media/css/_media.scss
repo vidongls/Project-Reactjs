@@ -31,3 +31,8 @@
     @content;
   }
 }
+@mixin xxl {
+  @media (min-width: 1500px) {
+    @content;
+  }
+}

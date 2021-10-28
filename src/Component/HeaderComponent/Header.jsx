@@ -1,19 +1,11 @@
 import { React, useState } from 'react'
-import { styled } from '@mui/material/styles'
 import '../../media/css/style.css'
 import logo from '../../media/img/logo.png'
 import { FaRegUser, FaSearch, FaShoppingCart } from 'react-icons/fa'
 
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  NavLink,
-} from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 function Header(props) {
-  const [miniCart, setMiniCart] = useState(false)
   const [showMenu, setShowMenu] = useState(false)
 
   const handleMenu = () => {

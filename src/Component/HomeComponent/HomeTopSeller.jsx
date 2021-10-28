@@ -14,7 +14,7 @@ function HomeTopSeller(props) {
         </div>
         <div className="seller-header__btn">
           <Link to="/shop" className="btn">
-            View Details
+            Collection
           </Link>
         </div>
       </div>
@@ -58,8 +58,8 @@ function HomeTopSeller(props) {
                 <span className="old-price">$230.00 USD</span>
               </div>
               <div className="seller-btn" style={{ display: 'flex' }}>
-                <Link className="btn" to="/shop">
-                  Shop Now
+                <Link className="btn btn-viewdetail" to="/shop">
+                  view details
                 </Link>
                 <div className="seller-shop">
                   <Link to="/shop">

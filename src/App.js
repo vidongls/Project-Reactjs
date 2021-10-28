@@ -1,5 +1,11 @@
 import HomeLayout from './Layouts/HomeLayout'
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  useParams,
+} from 'react-router-dom'
+
 import ShopLayout from './Layouts/ShopLayout'
 import ErrorComponent from './Component/ErrorComponent/ErrorComponent'
 import ProductLayout from './Layouts/ProductLayout'
@@ -7,6 +13,7 @@ import BlogLayout from './Layouts/BlogLayout'
 import PageLayout from './Layouts/PageLayout'
 import ContactLayout from './Layouts/ContactLayout'
 import './App.css'
+import DetailLayout from './Layouts/DetailLayout'
 
 function App() {
   return (
@@ -19,6 +26,11 @@ function App() {
         <Route path="/blog" component={BlogLayout} exact></Route>
         <Route path="/pages" component={PageLayout} exact></Route>
         <Route path="/contact" component={ContactLayout} exact></Route>
+        <Route
+          path="/details/:productID"
+          component={DetailLayout}
+          exact
+        ></Route>
         <Route path="" component={ErrorComponent}></Route>
       </Switch>
     </>

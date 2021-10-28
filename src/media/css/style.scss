@@ -2,9 +2,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800&display=swap');
 $cl1: #fe4536;
 $text1: #10111e;
+body {
+  font-family: Rubik, sans-serif;
+}
 .container {
-  width: 1200px;
+  // width: 1200px;
   margin: auto;
+  @include sm {
+    max-width: 540px;
+  }
+  @include md {
+    max-width: 720px;
+  }
+  @include lg {
+    max-width: 960px;
+  }
+  @include xl {
+    max-width: 1200px;
+  }
 }
 .btn {
   background: #fe4536;
@@ -199,7 +214,7 @@ $text1: #10111e;
         display: none;
       }
       @include md {
-        display: block;
+        display: flex;
       }
     }
     .btn-user {
@@ -207,7 +222,7 @@ $text1: #10111e;
         display: none;
       }
       @include sm {
-        display: block;
+        display: flex;
       }
     }
     .btn-cart {
@@ -488,9 +503,15 @@ $text1: #10111e;
     }
     .slick-prev {
       left: 50px;
+      @include xs {
+        left: 10px;
+      }
     }
     .slick-next {
       right: 50px;
+      @include xs {
+        right: 10px;
+      }
     }
   }
   .slick-prev,
@@ -534,12 +555,25 @@ $text1: #10111e;
   &-item {
     cursor: pointer;
     position: relative;
-
-    min-height: 700px;
+    @include xs {
+      min-height: 580px;
+    }
+    // @include xs {
+    //   min-height: 580px;
+    // }
+    @include sm {
+      min-height: 580px;
+    }
+    @include md {
+      min-height: 701px;
+    }
     > img {
       width: 100%;
       min-height: 701px;
       object-fit: cover;
+      @include xs {
+        min-height: 580px;
+      }
       @include sm {
         min-height: 580px;
       }
@@ -549,13 +583,24 @@ $text1: #10111e;
     }
     .shape-title {
       position: absolute;
-      top: 54px;
-      left: 220px;
+
+      @include xs {
+        top: -30px;
+        left: 10px;
+      }
+      @include sm {
+        top: -30px;
+        left: 10px;
+      }
+      @include xl {
+        top: 54px;
+        left: 220px;
+      }
       animation: bound 1.6s linear infinite alternate;
       h2 {
         font-size: 300px;
         color: #ededed;
-        font-weight: 500;
+        font-weight: 700;
       }
     }
     .shape-bound {
@@ -584,8 +629,33 @@ $text1: #10111e;
     flex-direction: row;
     flex-wrap: wrap;
     padding: 0px 15px;
+    @include xs {
+      padding: 0 20px;
+    }
+    @include md {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+    @include lg {
+      padding-left: 65px;
+      padding-right: 65px;
+    }
+    @include xl {
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+
     &__left {
-      width: 58%;
+      @include xs {
+        width: 100%;
+      }
+      @include sm {
+        width: 100%;
+      }
+
+      @include md {
+        width: 58%;
+      }
       span {
         font-size: 14px;
         letter-spacing: 2px;
@@ -597,28 +667,74 @@ $text1: #10111e;
       }
       h2 {
         font-size: 78px;
-        font-weight: 500;
+        font-weight: 600;
         margin-bottom: 40px;
+        @include xs {
+          font-size: 60px;
+          font-weight: 700;
+        }
+        @include sm {
+          font-size: 60px;
+        }
+        @include lg {
+          font-size: 78px;
+        }
       }
     }
 
     &__right {
       width: 41%;
-      padding-right: 15px;
-      padding-left: 15px;
+
       position: relative;
+      @include xs {
+        display: none;
+      }
+      @include sm {
+        display: none;
+      }
+
+      @include md {
+        display: block;
+      }
       .img-left,
       .img-right {
         position: absolute;
         animation: rightToLeft 1.4s ease;
       }
       .img-left {
-        left: 40px;
-        top: -75px;
+        @include sm {
+          left: auto;
+          top: -110px;
+          right: 54%;
+        }
+        @include xl {
+          top: -56px;
+          right: 54%;
+        }
+
+        @include xl {
+          left: 40px;
+          top: -75px;
+          right: unset;
+        }
       }
       .img-right {
-        right: -60px;
         bottom: 0;
+        @include sm {
+          left: auto;
+          right: 24%;
+          bottom: -42px;
+        }
+        @include lg {
+          top: unset;
+          right: 10%;
+        }
+        @include xl {
+          right: 6%;
+        }
+        @include xxl {
+          right: -120px;
+        }
       }
       img {
         width: 100%;
@@ -640,6 +756,11 @@ $text1: #10111e;
   }
   &-btn {
     a {
+      @include xs {
+        margin-bottom: 12px;
+        font-size: 11px;
+        min-width: 175px;
+      }
       margin-right: 25px;
       &:last-child {
         background-color: #fff;
@@ -657,6 +778,18 @@ $text1: #10111e;
   padding: 24px 30px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  @include xs {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  @include sm {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  @include md {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include lg {
+    grid-template-columns: repeat(3, 1fr);
+  }
   grid-gap: 30px;
   &-item {
     overflow: hidden;
@@ -677,20 +810,78 @@ $text1: #10111e;
 
 //****************
 //Product
+
+.wrap-proheader {
+  @include sm {
+    padding: 40px 20px;
+  }
+  @include md {
+    padding: 60px 20px;
+  }
+  @include xxl {
+    padding: 60px 90px;
+  }
+}
 .product {
   &-list {
     padding: 0 15px;
     margin-top: 32px;
+    @include xs {
+      padding: 0;
+    }
+    @include sm {
+      padding: 0;
+    }
+    @include md {
+      padding: 0 15px;
+    }
   }
   &-header {
-    // &.css-1em9ut6-MuiGrid-root {
-    //   margin-bottom: 32px;
-    // }
-    .css-heg063-MuiTabs-flexContainer {
-      justify-content: flex-end;
+    display: flex;
+    @include xs {
+      flex-direction: column !important;
     }
+    @include sm {
+      flex-direction: column !important;
+    }
+    @include xl {
+      flex-direction: row !important;
+    }
+    .css-ayy8wd-MuiGrid-root {
+      @include xs {
+        padding: 0 15px;
+        max-width: 100% !important;
+      }
+      @include sm {
+        padding: 0 15px;
+        max-width: 100% !important;
+      }
+      @include xl {
+        padding: 0;
+        max-width: 50% !important;
+      }
+    }
+    .css-heg063-MuiTabs-flexContainer {
+      flex-wrap: wrap;
+      @include xs {
+        justify-content: flex-start !important;
+      }
+      @include sm {
+        justify-content: flex-start !important;
+      }
+      @include lg {
+        justify-content: flex-end !important;
+      }
+    }
+
     &__title {
       margin-top: -10px !important;
+      @include sm {
+        margin-bottom: 42px !important;
+      }
+      @include xl {
+        margin-bottom: 0 !important;
+      }
       h2 {
         font-size: 40px;
         margin-bottom: 10px;
@@ -714,6 +905,20 @@ $text1: #10111e;
         text-transform: uppercase;
         line-height: 1;
         letter-spacing: 2px;
+        @include xs {
+          padding: 12px 16px;
+          margin-left: 10px;
+          font-size: 12px;
+          margin-bottom: 10px;
+        }
+        @include sm {
+          padding: 12px 16px;
+          margin-left: 10px;
+          font-size: 12px;
+        }
+        @include md {
+          padding: 18px 30px;
+        }
         &:first-child {
           margin-left: 0;
         }
@@ -728,6 +933,7 @@ $text1: #10111e;
   &-item {
     position: relative;
     padding: 0px 15px;
+
     margin-bottom: 25px;
     &:hover {
       .product-img__first {
@@ -748,9 +954,11 @@ $text1: #10111e;
     }
     img {
       width: 100%;
-      height: 100%;
+      // height: 100%;
       object-fit: cover;
-      min-height: 440px;
+      @include xxl {
+        min-height: 440px;
+      }
     }
     &__secondary {
       display: none !important;
@@ -788,7 +996,7 @@ $text1: #10111e;
   }
   &-meta {
     span {
-      font-weight: 700;
+      font-weight: 600;
       font-size: 14px;
       color: #747691;
       margin-right: 25px;
@@ -814,7 +1022,9 @@ $text1: #10111e;
       height: 50px;
       width: 50px;
       font-size: 16px;
-      display: inline-block;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       color: #8688a6;
       text-align: center;
       line-height: 51px;
@@ -868,6 +1078,15 @@ $text1: #10111e;
     height: 100px;
     width: 30px;
     color: $text1;
+    @include xs {
+      display: none !important;
+    }
+    @include sm {
+      display: none !important;
+    }
+    @include md {
+      display: block !important;
+    }
     &::before {
       display: none;
     }
@@ -880,20 +1099,51 @@ $text1: #10111e;
       background-color: #fff1f0;
     }
   }
+  .slick-next {
+    @include md {
+      right: -12px;
+    }
+    @include xxl {
+      right: -40px;
+    }
+  }
+  .slick-prev {
+    @include md {
+      left: -12px;
+    }
+    @include xxl {
+      left: -40px;
+    }
+  }
 }
 
 //***********************
 //Top Seller
 .seller {
-  padding-left: 90px;
-  padding-right: 90px;
-
+  @include xs {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 50px;
+  }
+  @include sm {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 50px;
+  }
+  @include xxl {
+    padding-left: 90px;
+    padding-right: 90px;
+  }
   &-header {
     display: flex;
     justify-content: space-between;
     margin-bottom: 50px;
     width: 100%;
+    @include xs {
+      flex-direction: column;
+    }
     &__title {
+      margin-bottom: 10px;
       h2 {
         font-size: 40px;
         color: #10111e;
@@ -920,10 +1170,23 @@ $text1: #10111e;
   &-list {
     display: flex;
     justify-content: space-between;
+    @include xs {
+      flex-direction: column;
+    }
+    @include sm {
+      flex-direction: column;
+    }
+    @include md {
+      flex-direction: row;
+    }
   }
   &-left {
-    width: 41.6666%;
     position: relative;
+    @include sm {
+    }
+    @include md {
+      width: 41.6666%;
+    }
     &__item {
       img {
         width: 100%;
@@ -936,9 +1199,18 @@ $text1: #10111e;
     &.text-left {
       background: #fff;
       display: inline-block;
-      margin-top: -80px;
-      padding: 45px 45px 0;
+
       text-align: left !important;
+      @include xs {
+        padding: 30px;
+      }
+      @include sm {
+        padding: 30px;
+      }
+      @include md {
+        margin-top: -80px;
+        padding: 45px 45px 0;
+      }
     }
     h2 {
       font-size: 40px;
@@ -977,20 +1249,61 @@ $text1: #10111e;
     }
   }
   &-right {
-    width: 58%;
     text-align: right !important;
+    position: relative;
+    @include sm {
+    }
+    @include md {
+      width: 54%;
+    }
+    @include xl {
+      width: 58%;
+    }
     .text-right {
       display: inline-block;
       width: 450px;
       position: absolute;
-      left: 0;
       background: #fff;
       padding: 45px;
       text-align: left;
-      top: 35px;
+      @include xs {
+        left: 20px;
+        top: auto;
+        padding: 25px;
+        bottom: 20px;
+        width: 300px;
+      }
+      @include sm {
+        left: 20px;
+        top: auto;
+        padding: 25px;
+        bottom: 20px;
+        width: 300px;
+      }
+      @include md {
+        left: 40px;
+        // top: 100px;
+      }
+      @include xxl {
+        bottom: 170px;
+        left: 0;
+        width: 450px;
+      }
       h2 {
         font-size: 80px;
         line-height: 1.1;
+        @include xs {
+          font-size: 35px;
+        }
+        @include sm {
+          font-size: 30px;
+        }
+        @include md {
+          font-size: 40px;
+        }
+        @include xxl {
+          font-size: 80px;
+        }
       }
       .seller-btn {
         .seller-shop {
@@ -1014,6 +1327,10 @@ $text1: #10111e;
             background-color: #84b77c;
           }
         }
+        .btn-viewdetail {
+          background-color: #84b77c;
+          padding: 23px 30px;
+        }
       }
     }
     img {
@@ -1030,9 +1347,41 @@ $text1: #10111e;
 .upcoming {
   background-image: url(https://firebasestorage.googleapis.com/v0/b/ecomerces-7cb8c.appspot.com/o/bg.jpg?alt=media&token=fe1bf8a3-bd9b-42dc-9ace-437a21983424);
   padding: 120px 90px;
+  margin-top: 50px;
+  @include xs {
+    background-position: 100%;
+    padding: 80px 0px;
+  }
+  @include sm {
+    background-position: 100%;
+    padding: 120px 20px;
+  }
+  @include lg {
+    padding: 120px 90px;
+  }
+  @include xl {
+    background-position: 35% 0;
+  }
+  @include xxl {
+    padding: 120px 90px;
+  }
   position: relative;
   display: flex;
+  .phan {
+    @include xl {
+      width: 50%;
+    }
+  }
   &-mark {
+    @include xs {
+      display: none;
+    }
+    @include sm {
+      display: none;
+    }
+    @include xl {
+      display: block;
+    }
     .marker {
       background: #84b77c;
       height: 35px;
@@ -1084,13 +1433,25 @@ $text1: #10111e;
     }
   }
   &-content {
-    width: 50%;
     padding-right: 15px;
     padding-left: 15px;
+    @include xl {
+      width: 50%;
+    }
     h2 {
-      font-size: 80px;
       margin-bottom: 35px;
       font-weight: 500;
+      @include sm {
+        font-size: 40px;
+      }
+      @include md {
+        font-size: 60px;
+        font-weight: 700;
+      }
+
+      @include xxl {
+        font-size: 80px;
+      }
       a {
         transition: all 0.2s ease;
         color: $text1;
@@ -1118,6 +1479,7 @@ $text1: #10111e;
   }
   &-info {
     display: flex;
+    flex-wrap: wrap;
     li {
       margin-right: 40px;
       margin-bottom: 30px;
@@ -1140,10 +1502,12 @@ $text1: #10111e;
   &-btn {
     .btn {
       margin-right: 20px;
+      margin-bottom: 10px;
       &:last-child {
         margin-right: 0;
         color: #747691;
         background-color: #ffffff;
+        min-width: 186px;
       }
       &:hover {
         background-color: #84b77c;
@@ -1155,6 +1519,7 @@ $text1: #10111e;
     margin-top: 40px;
     > span {
       display: inline-block;
+      margin-bottom: 10px;
       height: 110px;
       width: 110px;
       border-radius: 50%;
@@ -1188,14 +1553,27 @@ $text1: #10111e;
 //***********************
 //Top Seller
 .newsfeed {
-  padding-left: 90px;
-  padding-right: 90px;
   padding-bottom: 60px;
   padding-top: 95px;
+  padding-left: 15px;
+  padding-right: 15px;
+  @include xs {
+  }
+  @include sm {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  @include md {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  @include xxl {
+    padding-left: 90px;
+    padding-right: 90px;
+  }
   &-content {
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
   }
   &-header {
     margin-bottom: 50px;
@@ -1216,10 +1594,21 @@ $text1: #10111e;
   }
   &-list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 15px;
+    @include xs {
+      grid-template-columns: repeat(1, 1fr);
+    }
+    @include sm {
+      grid-template-columns: repeat(1, 1fr);
+    }
+    @include md {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include lg {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
   &-item {
-    padding: 0px 15px;
     &__image {
       margin-bottom: 25px;
       img {
@@ -1270,30 +1659,82 @@ $text1: #10111e;
 //***********************
 //Top Seller
 .homecontact {
-  padding-left: 105px;
-  padding-right: 105px;
+  @include lg {
+    padding: 0px 30px;
+  }
+  @include xxl {
+    padding-left: 105px;
+    padding-right: 105px;
+  }
   &-wrapper {
-    padding-left: 270px;
-    padding-right: 270px;
     background: #10111e;
     padding-bottom: 20px;
     padding-top: 70px;
+    @include xs {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+    @include sm {
+      padding-left: 50px;
+      padding-right: 50px;
+    }
+    @include xxl {
+      padding-left: 200px;
+      padding-right: 200px;
+    }
   }
   &-content {
     padding: 0 15px;
     width: 100%;
     display: flex;
     justify-content: space-between;
+    @include xs {
+      flex-direction: column;
+    }
+    @include sm {
+      flex-direction: column;
+    }
+
+    @include xl {
+      flex-direction: row;
+    }
   }
   &-left {
     display: flex;
+    @include xs {
+      justify-content: center;
+    }
+    @include sm {
+      justify-content: center;
+    }
+    @include xl {
+      justify-content: unset;
+    }
     &__icon {
       margin-right: 24px;
       margin-top: 16px;
+      @include xs {
+        display: none;
+      }
+      @include sm {
+        display: none;
+      }
+      @include md {
+        display: block;
+      }
     }
     &__text {
       color: #fff;
       margin-bottom: 30px;
+      @include xs {
+        text-align: center;
+      }
+      @include sm {
+        text-align: center;
+      }
+      @include md {
+        text-align: un;
+      }
       h2 {
         font-size: 40px;
         margin-bottom: 10px;
@@ -1310,6 +1751,16 @@ $text1: #10111e;
   &-right {
     &__box {
       display: flex;
+      @include xs {
+        flex-direction: column;
+      }
+      @include sm {
+        flex-direction: column;
+      }
+      @include lg {
+        flex-direction: row;
+      }
+
       .text-input {
         width: 100%;
         height: 70px;
@@ -1318,8 +1769,10 @@ $text1: #10111e;
         font-weight: 600;
         background: #141626;
         font-size: 12px;
-        min-width: 410px;
         color: #aaabc3;
+        @include lg {
+          min-width: 410px;
+        }
       }
       .btn {
         font-weight: 600;
@@ -1327,6 +1780,8 @@ $text1: #10111e;
         &:hover {
           background-color: #84b77c;
           color: #ffffff;
+        }
+        @include xs {
         }
       }
     }
@@ -1336,20 +1791,51 @@ $text1: #10111e;
 //Footer
 
 .footer {
-  padding: 100px;
   padding-bottom: 0;
+  margin-top: 100px;
+  @include xs {
+    padding: 0 15px;
+  }
+  @include sm {
+    padding: 0 15px;
+  }
+  @include md {
+    padding: 0 30px;
+  }
+  @include xl {
+    padding: 0px 100px;
+  }
   &-list {
-    padding: 100px 90px;
+    @include xs {
+      padding: 40px 30px;
+    }
+    @include sm {
+      padding: 50px;
+    }
+    @include lg {
+      padding: 0 90px;
+      padding-top: 80px;
+    }
     padding-bottom: 60px;
   }
   &-container {
-    width: 1200px;
-    margin: auto;
-    display: flex;
+    display: grid;
+    grid-gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    @include md {
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 50px;
+    }
+    @include xl {
+      grid-gap: 20px;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    @include xxl {
+      grid-template-columns: repeat(5, 1fr);
+    }
   }
   &-box {
-    padding-right: 15px;
-    padding-left: 15px;
     margin-bottom: 40px;
     &__logo {
       margin-bottom: 38px;
@@ -1376,8 +1862,17 @@ $text1: #10111e;
         }
         h2 {
           font-weight: 300;
-          font-size: 30px;
+
           margin: 0;
+          @include xs {
+            font-size: 20px;
+          }
+          @include sm {
+            font-size: 20px;
+          }
+          @include lg {
+            font-size: 22px;
+          }
         }
       }
     }
@@ -1400,11 +1895,11 @@ $text1: #10111e;
         }
       }
     }
-    width: calc(50% / 3);
-    &:last-child,
-    &:first-child {
-      width: 25%;
-    }
+    // width: calc(50% / 3);
+    // &:last-child,
+    // &:first-child {
+    //   width: 25%;
+    // }
   }
   &-banner {
     margin-bottom: 40px;
@@ -1440,8 +1935,16 @@ $text1: #10111e;
 .shop {
   padding: 100px 0px;
   .container {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
+    @include xs {
+      width: 100%;
+    }
+    @include sm {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+    }
+    @include lg {
+      grid-template-columns: 2fr 1fr;
+    }
   }
   &-countshow {
     margin: 0;
@@ -1466,6 +1969,15 @@ $text1: #10111e;
   &-midoption {
     display: flex;
     justify-content: space-between;
+    @include xs {
+      gap: 20px;
+      flex-direction: column;
+    }
+    .MuiTabs-flexContainer {
+      @include xs {
+        justify-content: flex-end;
+      }
+    }
   }
   &-tab {
     button {
@@ -1496,5 +2008,547 @@ $text1: #10111e;
     padding: 0 15px;
   }
   &-sort {
+  }
+}
+//***********************
+//ShopComponent
+.shop-list {
+  .product-list {
+    display: grid;
+    grid-gap: 20px;
+    padding: 0;
+    @include xs {
+      grid-template-columns: repeat(1, 1fr);
+    }
+    @include sm {
+      grid-template-columns: repeat(1, 1fr);
+    }
+    @include md {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+.shop-list-fulldetail {
+  p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 26px;
+    color: #7e7e7e;
+  }
+  .product-list {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .product-img {
+    @include sm {
+      padding: 0px 0px;
+    }
+    @include lg {
+      padding: 0 15px;
+    }
+  }
+  .product-item {
+    display: grid;
+    @include sm {
+      grid-template-columns: repeat(1, 1fr);
+    }
+    @include lg {
+      grid-template-columns: 1.5fr 2fr;
+    }
+
+    img {
+      width: 100%;
+      object-fit: cover;
+      padding: 0 15px;
+      height: 100%;
+      @include xs {
+        padding: 0;
+      }
+      @include sm {
+        padding: 0;
+      }
+      @include lg {
+        padding: 0 15px;
+      }
+      min-height: unset;
+    }
+  }
+  .product-tag {
+    left: 50px;
+    @include xs {
+      left: 20px;
+    }
+  }
+  .product-meta {
+    margin: 16px 0px;
+    span {
+      &:first {
+        color: #747691;
+      }
+    }
+  }
+  .product-action {
+    margin-top: 16px;
+    opacity: 1;
+    visibility: visible;
+    position: unset;
+    justify-content: flex-start;
+    &__item {
+      background-color: #84b77c;
+      color: #ffffff;
+      cursor: pointer;
+      &:hover {
+        background-color: $cl1;
+      }
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+//***********************
+//Pagination
+.pagination {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+  li {
+    background: transparent;
+    color: #9990b8;
+    border: 2px solid #eaebec;
+    height: 60px;
+    width: 60px;
+    line-height: 56px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+    margin: 0 5px;
+    transition: all 0.3s ease;
+    &:hover {
+      background: #fe4536;
+      color: #fff;
+      border-color: #fe4536;
+      box-shadow: 0 8px 16px 0 #fe45364d;
+    }
+  }
+  &-item {
+    &.active {
+      background: #fe4536;
+      color: #fff;
+      border-color: #fe4536;
+      box-shadow: 0 8px 16px 0 #fe45364d;
+    }
+  }
+}
+//***********************
+//Sidebar
+
+.sidebar {
+  padding: 0 15px;
+  &-box {
+    border: 4px solid #f9f9f9;
+    width: 100%;
+    height: 100%;
+    padding: 35px 40px;
+  }
+  h3 {
+    font-size: 20px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    font-weight: 600;
+  }
+  &-search {
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+    border-bottom: 2px dashed #ede8ff;
+    h3 {
+      font-size: 20px;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+    }
+    form {
+      position: relative;
+      input {
+        width: 100%;
+        height: 60px;
+        border: 0;
+        background: #f9f9f9;
+        border-radius: 30px;
+        padding: 0 30px;
+      }
+      button {
+        position: absolute;
+        background: #fe4536;
+        border: 0;
+        color: #fff;
+        height: 60px;
+        width: 60px;
+        right: 0;
+        top: 0;
+        border-radius: 50%;
+        box-shadow: 0 8px 16px 0 #fe45364d;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        &:hover {
+          background-color: #84b77c;
+        }
+        svg {
+          color: #fff;
+        }
+      }
+    }
+  }
+  svg {
+    color: #abadc5;
+    // margin-right: 10px;
+  }
+  span {
+    color: #7e7e7e;
+    font-size: 14px;
+    text-transform: capitalize;
+  }
+
+  &-brandfilter {
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+    border-bottom: 2px dashed #ede8ff;
+  }
+  &-drag {
+    border-bottom: 2px dashed #ede8ff;
+    .css-187mznn-MuiSlider-root {
+      color: #84b77c;
+    }
+    &__price {
+      font-size: 14px;
+      font-weight: normal;
+      // font-family: Rubik, sans-serif;
+      margin-top: 20px;
+      margin-bottom: 30px;
+    }
+  }
+  &-size {
+    border-bottom: 2px dashed #ede8ff;
+    margin-top: 40px;
+    padding-bottom: 30px;
+  }
+  &-category {
+    border-bottom: 2px dashed #ede8ff;
+    margin-top: 40px;
+    padding-bottom: 30px;
+  }
+  &-tag {
+    border-bottom: 2px dashed #ede8ff;
+    margin-top: 40px;
+    padding-bottom: 30px;
+
+    span {
+      color: #7e7e7e;
+      font-size: 14px;
+      text-transform: capitalize;
+    }
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+      li {
+        border: 1px solid #e7e7e7;
+        text-transform: capitalize;
+        padding: 7px 15px;
+        margin-right: 5px;
+        margin-bottom: 6px;
+        color: #747691;
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        &:hover {
+          color: #ffffff;
+          background-color: $cl1;
+        }
+      }
+    }
+  }
+  &-color {
+    border-bottom: 2px dashed #ede8ff;
+    margin-top: 40px;
+    padding-bottom: 30px;
+    &__list {
+      display: flex;
+      flex-direction: column;
+      input:checked {
+        + svg {
+          box-shadow: 0 1px 10px 0 #fe453633;
+        }
+      }
+      svg {
+        height: 16px;
+        width: 16px;
+        background: transparent;
+        display: inline-block;
+        border-radius: 50%;
+        border: 4px solid #fff;
+        position: relative;
+        top: 2px;
+        // margin-right: 10px;
+        path {
+          display: none;
+        }
+      }
+      .black {
+        svg {
+          background: #000;
+        }
+      }
+      .green {
+        svg {
+          background: #61a344;
+        }
+      }
+      .blue {
+        svg {
+          background: #06f;
+        }
+      }
+      .white {
+        svg {
+          background: #eae9e7;
+        }
+      }
+      .red {
+        svg {
+          background: $cl1;
+        }
+      }
+      .gray {
+        svg {
+          background: #a7b4b5;
+        }
+      }
+    }
+  }
+  &-recent {
+    border-bottom: 2px dashed #ede8ff;
+    margin-top: 40px;
+    padding-bottom: 30px;
+  }
+  &-product {
+    > li {
+      display: flex;
+    }
+    &__image {
+      img {
+        width: 80px;
+        height: 100%;
+        object-fit: cover;
+      }
+      margin-right: 14px;
+    }
+    &__content {
+    }
+    &__rating {
+      font-size: 12px;
+      svg {
+        color: #ffba00;
+      }
+    }
+    h5 {
+      margin-bottom: 7px;
+
+      a {
+        transition: all 0.2s ease;
+        font-size: 14px;
+        color: #10111e;
+        font-weight: 500;
+        &:hover {
+          color: $cl1;
+        }
+      }
+    }
+    &__price {
+      span {
+        font-weight: 500;
+        font-size: 13px;
+        color: #747691;
+      }
+    }
+  }
+  &-adv {
+    margin-top: 40px;
+    padding-bottom: 30px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+//***********************
+//Product Page
+
+.compro-list {
+  @include xs {
+    margin: 50px 0px;
+  }
+  @include sm {
+    margin: 100px 0;
+  }
+  .product-list {
+    display: grid;
+    @include xs {
+      grid-template-columns: repeat(1, 1fr);
+      padding: 0 15px;
+    }
+    @include md {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include lg {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    grid-gap: 30px;
+  }
+  .shop-midoption {
+    @include xs {
+      padding: 0 15px;
+    }
+    @include lg {
+      padding: 0 17px;
+    }
+    @include xxl {
+      padding: 0 30px;
+    }
+  }
+  .shop-list-fulldetail {
+    @include sm {
+      margin-top: 30px;
+    }
+    @include lg {
+      margin-top: 10px;
+    }
+    .product-list {
+      display: unset;
+      .product-tag {
+        @include xs {
+          left: 30px;
+        }
+      }
+    }
+    .product-item {
+      @include xs {
+        padding: 0 15px !important;
+        margin-bottom: 70px;
+      }
+      @include sm {
+        margin-bottom: 70px;
+      }
+      @include md {
+        grid-template-columns: 1fr 2fr;
+        margin-bottom: 30px;
+        grid-gap: 30px;
+      }
+      @include lg {
+        grid-gap: unset;
+      }
+    }
+  }
+}
+//***********************
+//Details Page
+
+.detail {
+  padding: 50px 0px;
+  &-box {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  &-image {
+    padding: 0 15px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    &__main {
+      .MuiTabPanel-root {
+        padding: 0;
+      }
+      margin-bottom: 10px;
+    }
+    &__child {
+      button {
+        padding: 0;
+      }
+      .MuiTabs-flexContainer {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 15px;
+      }
+      .PrivateTabIndicator-colorSecondary-3 {
+        display: none;
+      }
+    }
+  }
+  &-content {
+    padding-left: 30px;
+    h2 {
+      font-size: 35px;
+      font-weight: 500;
+      margin-bottom: 15px;
+    }
+  }
+  &-category {
+    margin-bottom: 20px;
+    a {
+      font-size: 14px;
+      text-transform: uppercase;
+      font-weight: 500;
+      letter-spacing: 2px;
+      color: #747691;
+      transition: all 0.3s ease;
+      &:hover {
+        color: $cl1;
+      }
+    }
+  }
+  &-price {
+    margin-bottom: 20px;
+    span {
+      color: #fe4536;
+      font-weight: 300;
+      font-size: 40px;
+      margin-right: 25px;
+    }
+  }
+  &-des {
+    padding: 30px 0;
+    border-top: 1px solid #ffe7e5;
+    p {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 26px;
+      color: #7e7e7e;
+    }
+  }
+  &-info {
+    padding: 30px 0;
+    border-top: 1px solid #ffe7e5;
+    ul {
+      li {
+        margin-bottom: 10px;
+        font-size: 14px;
+        span {
+          font-weight: 500;
+          color: #232b37;
+          width: 120px;
+          display: inline-block;
+        }
+        .stock {
+          font-weight: 400;
+          color: $cl1;
+        }
+      }
+    }
   }
 }

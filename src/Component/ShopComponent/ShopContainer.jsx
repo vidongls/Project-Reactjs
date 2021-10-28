@@ -2,25 +2,27 @@ import { React, useState } from 'react'
 import PropTypes from 'prop-types'
 import Tab from '@mui/material/Tab'
 import TabList from '@material-ui/lab/TabList'
-import TabPanel from '@material-ui/lab/TabPanel'
 import TabContext from '@material-ui/lab/TabContext'
 import { FaThList, FaListUl } from 'react-icons/fa'
+import ShopListItem from './ShopListItem'
+import ShopSort from './ShopSort'
 
 ShopContainer.propTypes = {}
 
 function ShopContainer(props) {
-  const [value, setValue] = useState(true)
+  const [value, setValue] = useState('0')
 
   const handleChange = (event, newValue) => {
     setValue(newValue)
   }
+
   return (
     <div className="shop">
       <div className="container">
         <div className="shop-content">
           <div className="shop-banner">
             <img
-              src="https://firebasestorage.googleapis.com/v0/b/ecomerces-7cb8c.appspot.com/o/shop-banner.jpg?alt=media&token=0418f299-2cd1-4442-964e-150f2b5caf34"
+              src="https://firebasestorage.googleapis.com/v0/b/ecomerces-7cb8c.appspot.com/o/shop-banner%20(1).jpg?alt=media&token=afcf2b0a-612f-4964-ae53-55f7236bb7eb"
               alt=""
             />
           </div>
@@ -41,23 +43,20 @@ function ShopContainer(props) {
                 <Tab
                   className="shop-tab__item"
                   label={<FaListUl />}
-                  value={false}
+                  value="1"
                 />
 
                 <Tab
                   className="shop-tab__item"
                   label={<FaThList />}
-                  value={true}
+                  value="0"
                 />
               </TabList>
             </div>
-            <div className="shop-list">
-              <TabPanel value={true}>Item One</TabPanel>
-              <TabPanel value={false}>Item Two</TabPanel>
-            </div>
+            <ShopListItem />
           </TabContext>
         </div>
-        <div className="shop-sort">sort</div>
+        <ShopSort />
       </div>
     </div>
   )

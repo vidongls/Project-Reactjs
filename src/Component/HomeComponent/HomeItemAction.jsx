@@ -1,8 +1,7 @@
 import { React, useState } from 'react'
 import PropTypes from 'prop-types'
 import { FaRegEye, FaExchangeAlt, FaShoppingCart } from 'react-icons/fa'
-import Button from '@mui/material/Button'
-import Snackbar from '@mui/material/Snackbar'
+
 HomeItemAction.propTypes = {}
 
 function HomeItemAction(props) {

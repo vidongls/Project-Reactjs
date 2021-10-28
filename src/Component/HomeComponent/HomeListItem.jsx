@@ -3,8 +3,7 @@ import PropTypes from 'prop-types'
 import Grid from '@mui/material/Grid'
 import { Link } from 'react-router-dom'
 import Slider from 'react-slick'
-import { useDispatch, useSelector } from 'react-redux'
-
+import { useSelector } from 'react-redux'
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
 import ProductSort from '../ProductComponent/ProductSort'
 import ProductApi from '../../Api/ProductApi'
@@ -101,16 +100,38 @@ function HomeListItem(props) {
     slidesToShow: 4,
     rows: row,
     slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 682,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          rows: 1,
+        },
+      },
+    ],
   }
   return (
-    <div style={{ padding: '60px 90px' }}>
+    <div className="wrap-proheader">
       <Grid container spacing={0} className="product">
-        <Grid
-          className="product-header"
-          item
-          xs={12}
-          style={{ display: 'flex' }}
-        >
+        <Grid className="product-header" item xs={12}>
           <Grid className="product-header__title" item xs={6}>
             <h2>{title}</h2>
             <p>Browse the huge variety of our products</p>
@@ -125,7 +146,7 @@ function HomeListItem(props) {
               products.map((item, index) => {
                 return (
                   <div className="product-item" key={index}>
-                    <Link to="/" className="product-img">
+                    <Link to={`/details/${item.id}`} className="product-img">
                       <img src={item.img1} className="product-img__first"></img>
                       <img
                         src={item.img2}
@@ -143,10 +164,12 @@ function HomeListItem(props) {
                     </Link>
                     <div className="product-content">
                       <div className="product-category">
-                        <Link to="/">Decor, {item.brand} </Link>
+                        <Link to={`/details/${item.id}`}>
+                          Decor, {item.brand}{' '}
+                        </Link>
                       </div>
                       <h4>
-                        <Link to="/">{item.name}</Link>
+                        <Link to={`/details/${item.id}`}>{item.name}</Link>
                       </h4>
                       <div className="product-meta">
                         <span>${item.mainPrice}.00 USD</span>

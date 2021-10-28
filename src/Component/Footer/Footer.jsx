@@ -7,7 +7,6 @@ Footer.propTypes = {}
 
 function Footer(props) {
   const { checkimg } = props
-  console.log(checkimg)
 
   return (
     <div className="footer">

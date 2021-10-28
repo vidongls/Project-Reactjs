@@ -21,7 +21,7 @@ function HomeComingSoon(props) {
           <p>Lodge Flush Mount</p>
         </div>
       </div>
-      <div style={{ width: '50%' }}></div>
+      <div className="phan"></div>
       <div className="upcoming-content">
         <div className="upcoming-price">$500.00</div>
         <h2>
