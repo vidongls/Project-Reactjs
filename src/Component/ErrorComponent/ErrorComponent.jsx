@@ -1,8 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Header from '../HeaderComponent/Header'
-
-ErrorComponent.propTypes = {}
 
 function ErrorComponent(props) {
   return (

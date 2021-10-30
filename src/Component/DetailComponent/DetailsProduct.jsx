@@ -7,6 +7,8 @@ import TabPanel from '@material-ui/lab/TabPanel'
 import TabContext from '@material-ui/lab/TabContext'
 import { Link } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
+import DetailAction from './DetailAction'
+import DetailDesPrev from './DetailDesPrev'
 
 Details.propTypes = {}
 
@@ -105,8 +107,10 @@ function Details(props) {
                 </li>
               </ul>
             </div>
+            <DetailAction />
           </div>
         </div>
+        <DetailDesPrev />
       </div>
     </div>
   )

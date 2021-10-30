@@ -1,10 +1,5 @@
 import HomeLayout from './Layouts/HomeLayout'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  useParams,
-} from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 
 import ShopLayout from './Layouts/ShopLayout'
 import ErrorComponent from './Component/ErrorComponent/ErrorComponent'
@@ -14,6 +9,7 @@ import PageLayout from './Layouts/PageLayout'
 import ContactLayout from './Layouts/ContactLayout'
 import './App.css'
 import DetailLayout from './Layouts/DetailLayout'
+import BlogDetailLayout from './Layouts/BlogDetailLayout'
 
 function App() {
   return (
@@ -29,6 +25,11 @@ function App() {
         <Route
           path="/details/:productID"
           component={DetailLayout}
+          exact
+        ></Route>
+        <Route
+          path="/detail-post/:postID"
+          component={BlogDetailLayout}
           exact
         ></Route>
         <Route path="" component={ErrorComponent}></Route>

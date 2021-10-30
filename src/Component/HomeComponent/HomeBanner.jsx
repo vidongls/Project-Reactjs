@@ -1,6 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-HomeBanner.propTypes = {}
 
 function HomeBanner(props) {
   return (

@@ -1,14 +1,16 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Header from '../Component/HeaderComponent/Header'
-
-BlogLayout.propTypes = {}
+import Footer from '../Component/Footer/Footer'
+import HeaderDetail from '../Component/HeaderComponent/HeaderDetail'
+import BlogContainer from '../Component/BlogComponent/BlogContainer'
 
 function BlogLayout(props) {
   return (
     <div>
       <Header />
-      this is blog
+      <HeaderDetail title="Blog" curpage="Blog" />
+      <BlogContainer />
+      <Footer checkimg={true} />
     </div>
   )
 }

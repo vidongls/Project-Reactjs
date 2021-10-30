@@ -174,7 +174,9 @@ function HomeListItem(props) {
                       <div className="product-meta">
                         <span>${item.mainPrice}.00 USD</span>
                         <span className="old-price">
-                          {'$' + item.price + '.00 USD'}
+                          {item.price !== undefined
+                            ? '$' + item.price + '.00 USD'
+                            : null}
                         </span>
                       </div>
                     </div>

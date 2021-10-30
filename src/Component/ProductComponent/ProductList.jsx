@@ -6,10 +6,9 @@ import TabPanel from '@material-ui/lab/TabPanel'
 import TabContext from '@material-ui/lab/TabContext'
 import { FaThList, FaListUl } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
 import ProductApi from '../../Api/ProductApi'
 import HomeItemAction from '../HomeComponent/HomeItemAction'
-import Pagination from '../ShopComponent/Pagination'
+import Pagination from '../Pagination/Pagination'
 ProductList.propTypes = {}
 
 function ProductList(props) {
