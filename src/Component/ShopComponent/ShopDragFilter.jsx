@@ -1,8 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Slider from '@mui/material/Slider'
-
-ShopDragFilter.propTypes = {}
 
 function valuetext(value) {
   return `${value}°C`

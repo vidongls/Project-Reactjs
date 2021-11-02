@@ -1,13 +1,10 @@
 import { React, useState } from 'react'
-import PropTypes from 'prop-types'
 import Tab from '@mui/material/Tab'
 import TabList from '@material-ui/lab/TabList'
 import TabContext from '@material-ui/lab/TabContext'
 import { FaThList, FaListUl } from 'react-icons/fa'
 import ShopListItem from './ShopListItem'
 import ShopSort from './ShopSort'
-
-ShopContainer.propTypes = {}
 
 function ShopContainer(props) {
   const [value, setValue] = useState('0')

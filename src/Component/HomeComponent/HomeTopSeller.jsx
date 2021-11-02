@@ -1,8 +1,6 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { FaShoppingCart } from 'react-icons/fa'
-HomeTopSeller.propTypes = {}
 
 function HomeTopSeller(props) {
   return (

@@ -1,5 +1,4 @@
 import { React, useState, useEffect } from 'react'
-import PropTypes from 'prop-types'
 import ProductApi from '../../Api/ProductApi'
 import Tab from '@mui/material/Tab'
 import TabList from '@material-ui/lab/TabList'
@@ -9,8 +8,6 @@ import { Link } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 import DetailAction from './DetailAction'
 import DetailDesPrev from './DetailDesPrev'
-
-Details.propTypes = {}
 
 function Details(props) {
   const [products, setProducts] = useState([])
@@ -27,7 +24,6 @@ function Details(props) {
       const productItems = await ProductApi.getOne(productID)
       let data = productItems.data
       setProducts(data)
-      console.log(data.images)
     }
     getProducts()
   }, [])
@@ -107,7 +103,7 @@ function Details(props) {
                 </li>
               </ul>
             </div>
-            <DetailAction />
+            <DetailAction product={products} />
           </div>
         </div>
         <DetailDesPrev />

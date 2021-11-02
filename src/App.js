@@ -10,6 +10,9 @@ import ContactLayout from './Layouts/ContactLayout'
 import './App.css'
 import DetailLayout from './Layouts/DetailLayout'
 import BlogDetailLayout from './Layouts/BlogDetailLayout'
+import CartLayout from './Layouts/CartLayout'
+import LoginLayout from './Layouts/LoginLayout'
+import RegisterLayout from './Layouts/RegisterLayout'
 
 function App() {
   return (
@@ -22,6 +25,9 @@ function App() {
         <Route path="/blog" component={BlogLayout} exact></Route>
         <Route path="/pages" component={PageLayout} exact></Route>
         <Route path="/contact" component={ContactLayout} exact></Route>
+        <Route path="/cart" component={CartLayout} exact></Route>
+        <Route path="/login" component={LoginLayout} exact></Route>
+        <Route path="/register" component={RegisterLayout} exact></Route>
         <Route
           path="/details/:productID"
           component={DetailLayout}

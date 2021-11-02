@@ -9,17 +9,20 @@ import HomeComingSoon from '../Component/HomeComponent/HomeComingSoon'
 import HomeNewFeeds from '../Component/HomeComponent/HomeNewFeeds'
 import HomeContact from '../Component/HomeComponent/HomeContact'
 import Footer from '../Component/Footer/Footer'
+import SideAction from '../Component/SideAction/SideAction'
+import HomeListItemSeller from '../Component/HomeComponent/HomeListItemSeller'
 HomeLayout.propTypes = {}
 
 function HomeLayout(props) {
   return (
     <div>
+      <SideAction />
       <Header />
       <HomeSlider />
       <HomeBanner />
       <HomeListItem row={2} title="Brand New Products" />
       <HomeTopSeller />
-      <HomeListItem row={1} title="Best Sell Products" />
+      <HomeListItemSeller row={1} title="Brand New Products" />
       <HomeComingSoon />
       <HomeNewFeeds />
       <HomeContact />

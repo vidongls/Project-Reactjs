@@ -61,7 +61,6 @@ function ProductList(props) {
               }}
             >
               <Tab className="shop-tab__item" label={<FaListUl />} value="1" />
-
               <Tab className="shop-tab__item" label={<FaThList />} value="0" />
             </TabList>
           </div>
@@ -90,12 +89,14 @@ function ProductList(props) {
                           }}
                           src={item.img1}
                           className="product-img__first"
+                          alt=""
                         ></img>
                         <img
                           style={{
                             minHeight: 'unset',
                           }}
                           src={item.img2}
+                          alt=""
                           className="product-img__secondary"
                         ></img>
                         <HomeItemAction />
@@ -153,10 +154,12 @@ function ProductList(props) {
                         <img
                           src={item.img1}
                           className="product-img__first"
+                          alt=""
                         ></img>
                         <img
                           src={item.img2}
                           className="product-img__secondary"
+                          alt=""
                         ></img>
                         <div className="product-tag">
                           <span className={item.new === true ? 'new' : null}>

@@ -1,9 +1,6 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { FaRegCalendarCheck, FaRegUser, FaRegComments } from 'react-icons/fa'
-
-HomeNewFeeds.propTypes = {}
 
 function HomeNewFeeds(props) {
   return (

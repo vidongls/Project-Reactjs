@@ -1,8 +1,5 @@
 import { React, useState } from 'react'
-import PropTypes from 'prop-types'
 import { FaRegEye, FaExchangeAlt, FaShoppingCart } from 'react-icons/fa'
-
-HomeItemAction.propTypes = {}
 
 function HomeItemAction(props) {
   const [state, setState] = useState(false)
@@ -10,7 +7,10 @@ function HomeItemAction(props) {
   const handleClass = () => {
     setState(!state)
   }
-
+  const { id } = props
+  const handleAdd = (id) => {
+    // console.log(id)
+  }
   return (
     <>
       <div className="product-action">

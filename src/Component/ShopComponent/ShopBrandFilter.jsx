@@ -1,10 +1,8 @@
 import { React, useEffect, useState } from 'react'
-import PropTypes from 'prop-types'
 import Checkbox from '@mui/material/Checkbox'
 import FormControlLabel from '@mui/material/FormControlLabel'
 import ProductApi from '../../Api/ProductApi'
 
-ShopBrandFilter.propTypes = {}
 // const label = { inputProps: { 'aria-label': 'Checkbox demo' } }
 function ShopBrandFilter(props) {
   let arrSort = []

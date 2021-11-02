@@ -1,8 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { useForm } from 'react-hook-form'
-
-HomeContact.propTypes = {}
 
 function HomeContact(props) {
   const { register, handleSubmit } = useForm()

@@ -1,7 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-
-ShopSideAdv.propTypes = {}
 
 function ShopSideAdv(props) {
   return (

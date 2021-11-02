@@ -1,20 +1,45 @@
-import { React, useState } from 'react'
+import { React, useState, useEffect } from 'react'
 import '../../media/css/style.css'
 import logo from '../../media/img/logo.png'
-import { FaRegUser, FaSearch, FaShoppingCart } from 'react-icons/fa'
-
+import { useSelector, useDispatch } from 'react-redux'
 import { Link, NavLink } from 'react-router-dom'
-
+import {
+  FaRegUser,
+  FaSearch,
+  FaShoppingCart,
+  FaRegTrashAlt,
+} from 'react-icons/fa'
+import { removeItemCart } from '../../Slice/CartSlice'
 function Header(props) {
   const [showMenu, setShowMenu] = useState(false)
+  const cartItems = useSelector((state) => state.cart.cartItems)
+  // const totalPrice = useSelector((state) => state.cart.setTotalPrice)
+
+  const quantity = cartItems.length
+  // console.log(totalPrice)
+
+  const dispatch = useDispatch()
 
   const handleMenu = () => {
     setShowMenu(!showMenu)
   }
 
+  const handleDelete = (id) => {
+    const actionDelete = removeItemCart(id)
+    dispatch(actionDelete)
+  }
+
+  const [scroll, setScroll] = useState(false)
+
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      setScroll(window.scrollY > 250)
+    })
+  }, [])
+
   return (
     <>
-      <div className="header">
+      <div className={scroll ? 'header active' : 'header '}>
         <div className="header-logo">
           <div className="header-logo__humberger">
             <span></span>
@@ -138,32 +163,32 @@ function Header(props) {
             </div>
           </li>
           <li>
-            <NavLink to={'/pages'}>Pages</NavLink>
+            <NavLink to={'#'}>Pages</NavLink>
             <div className="header-dropdown">
               <ul>
                 <li>
                   <Link to="/">About Us</Link>
                 </li>
                 <li>
-                  <Link to="/">Contact Us</Link>
+                  <Link to="/contact">Contact Us</Link>
                 </li>
                 <li>
-                  <Link to="/">login</Link>
+                  <Link to="/login">login</Link>
                 </li>
                 <li>
-                  <Link to="/">Register</Link>
+                  <Link to="/register">Register</Link>
                 </li>
                 <li>
-                  <Link to="/">Shoping Cart</Link>
+                  <Link to="/cart">Shoping Cart</Link>
                 </li>
                 <li>
-                  <Link to="/">Checkout</Link>
+                  <Link to="/checkout">Checkout</Link>
                 </li>
                 <li>
-                  <Link to="/">Wishlist</Link>
+                  <Link to="/wishlish">Wishlist</Link>
                 </li>
                 <li>
-                  <Link to="/">Compare</Link>
+                  <Link to="/compare">Compare</Link>
                 </li>
                 <li>
                   <Link to="/">Order Success</Link>
@@ -185,10 +210,47 @@ function Header(props) {
             </li>
             <li className="btn-cart">
               <FaShoppingCart />
-              <span className="cart-count">0</span>
+              <span className="cart-count">{quantity ? quantity : '0'}</span>
               <ul className="minicart">
-                <h3>Product Not Found</h3>
-                <li></li>
+                {cartItems.length !== 0 ? (
+                  cartItems.map((item, index) => {
+                    return (
+                      <li className="cart-item" key={index}>
+                        <div className="cart-img">
+                          <Link to={`/details/${item.id}`}>
+                            <img src={item.product.img1} alt="" />
+                          </Link>
+                        </div>
+                        <div className="cart-content">
+                          <h3>
+                            <Link to={`/details/${item.id}`}>
+                              {item.product.name}
+                            </Link>
+                          </h3>
+
+                          <div className="cart-price">
+                            <span>
+                              ${item.product.mainPrice} * {item.quantity}
+                            </span>{' '}
+                            ={' '}
+                            <span>
+                              {' '}
+                              ${item.product.mainPrice * item.quantity}
+                            </span>
+                          </div>
+                        </div>
+                        <div
+                          className="cart-icon"
+                          onClick={() => handleDelete(item.id)}
+                        >
+                          <FaRegTrashAlt />
+                        </div>
+                      </li>
+                    )
+                  })
+                ) : (
+                  <h3>Product Not Found</h3>
+                )}
                 <li>
                   <div className="minicart-price">
                     <span className="minicart-price__left">Total:</span>

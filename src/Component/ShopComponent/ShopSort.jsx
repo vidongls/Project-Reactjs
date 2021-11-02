@@ -1,5 +1,4 @@
-import { React, useState, useEffect } from 'react'
-import PropTypes from 'prop-types'
+import { React } from 'react'
 import ShopSearch from './ShopSearch'
 import ShopBrandFilter from './ShopBrandFilter'
 import ShopDragFilter from './ShopDragFilter'
@@ -9,8 +8,6 @@ import ShopTagFilter from './ShopTagFilter'
 import ShopColorFilter from './ShopColorFilter'
 import ShopRecentProduct from './ShopRecentProduct'
 import ShopSideAdv from './ShopSideAdv'
-
-ShopSort.propTypes = {}
 
 function ShopSort(props) {
   return (

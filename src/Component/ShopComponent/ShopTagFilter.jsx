@@ -1,8 +1,5 @@
 import { React, useState, useEffect } from 'react'
-import PropTypes from 'prop-types'
 import ProductApi from '../../Api/ProductApi'
-
-ShopTagFilter.propTypes = {}
 
 function ShopTagFilter(props) {
   let arrTag = []

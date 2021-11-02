@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom'
 import Slider from 'react-slick'
 import { useSelector } from 'react-redux'
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
-import ProductSort from '../ProductComponent/ProductSort'
 import ProductApi from '../../Api/ProductApi'
 import HomeItemAction from './HomeItemAction'
+import HomeTopSellerAction from './HomeListSellerAction'
 
 const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
   <button
@@ -36,10 +36,11 @@ const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => (
   </button>
 )
 
-function HomeListItem(props) {
+function HomeListItemSeller(props) {
   const [products, setProducts] = useState([])
-  const sort = useSelector((state) => state.sort.data)
-  let newArr = []
+  const sort = useSelector((state) => state.sort.dataTopSeller)
+  console.log(sort)
+  let newArrTop = []
   // console.log(sort)
   const { row, title } = props
 
@@ -50,14 +51,14 @@ function HomeListItem(props) {
 
       switch (sort) {
         case 'All': {
-          newArr = [...data]
+          newArrTop = [...data]
           break
         }
         case 'Furniture': {
           let newFur = data.filter((val) => {
             return val.category.indexOf(sort.toLowerCase()) !== -1
           })
-          newArr = [...newFur]
+          newArrTop = [...newFur]
           break
         }
         case 'ManCloth': {
@@ -67,7 +68,7 @@ function HomeListItem(props) {
               val.category.indexOf('clothing') !== -1
             )
           })
-          newArr = [...newMan]
+          newArrTop = [...newMan]
           break
         }
         case 'Woman Cloth': {
@@ -77,11 +78,11 @@ function HomeListItem(props) {
               val.category.indexOf('clothing') !== -1
             )
           })
-          newArr = [...newLady]
+          newArrTop = [...newLady]
           break
         }
       }
-      setProducts(newArr)
+      setProducts(newArrTop)
     }
     getProducts()
   }, [sort])
@@ -135,7 +136,7 @@ function HomeListItem(props) {
             <p>Browse the huge variety of our products</p>
           </Grid>
           <Grid className="product-header__tab" item xs={6}>
-            <ProductSort />
+            <HomeTopSellerAction />
           </Grid>
         </Grid>
         <Grid item xs={12}>
@@ -188,4 +189,4 @@ function HomeListItem(props) {
   )
 }
 
-export default HomeListItem
+export default HomeListItemSeller

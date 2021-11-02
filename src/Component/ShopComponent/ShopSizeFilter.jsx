@@ -1,10 +1,7 @@
 import { React, useState, useEffect } from 'react'
-import PropTypes from 'prop-types'
 import Checkbox from '@mui/material/Checkbox'
 import FormControlLabel from '@mui/material/FormControlLabel'
 import ProductApi from '../../Api/ProductApi'
-
-ShopSizeFilter.propTypes = {}
 
 function ShopSizeFilter(props) {
   const [checked, setChecked] = useState(true)

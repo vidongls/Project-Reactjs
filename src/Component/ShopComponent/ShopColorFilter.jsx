@@ -1,9 +1,6 @@
 import { React, useState } from 'react'
-import PropTypes from 'prop-types'
 import Checkbox from '@mui/material/Checkbox'
 import FormControlLabel from '@mui/material/FormControlLabel'
-
-ShopColorFilter.propTypes = {}
 
 function ShopColorFilter(props) {
   let arrColor = []
