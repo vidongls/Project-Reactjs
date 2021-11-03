@@ -8,17 +8,20 @@ import {
   deCreaseQuantity,
 } from '../../Slice/CartSlice'
 import { useSelector, useDispatch } from 'react-redux'
-
+import { setTotalPrice } from '../../Slice/CartSlice'
 function CartComponent(props) {
   // const [quantity, SetQuantity] = useState()
-
+  const totalPrice = useSelector((state) => state.cart.totalPrice)
   const cartItems = useSelector((state) => state.cart.cartItems)
+
   const dispatch = useDispatch()
 
   const handleIncrease = (id, quantity) => {
     const option = { id, quantity }
     const actionIncrease = inCreaseQuantity(option)
     dispatch(actionIncrease)
+    const actionTotalPrice = setTotalPrice()
+    dispatch(actionTotalPrice)
   }
 
   const handleDecrease = (id, quantity) => {
@@ -26,12 +29,16 @@ function CartComponent(props) {
       const option = { id, quantity }
       const actionDecrease = deCreaseQuantity(option)
       dispatch(actionDecrease)
+      const actionTotalPrice = setTotalPrice()
+      dispatch(actionTotalPrice)
     }
   }
 
   const handleDelete = (id) => {
     const actionDelete = removeItemCart(id)
     dispatch(actionDelete)
+    const actionTotalPrice = setTotalPrice()
+    dispatch(actionTotalPrice)
   }
 
   const { register, handleSubmit } = useForm()
@@ -144,11 +151,11 @@ function CartComponent(props) {
               <ul>
                 <li>
                   Subtotal
-                  <span>1130.00</span>
+                  <span>{totalPrice}.00</span>
                 </li>
                 <li>
                   Total
-                  <span> $1130.00</span>
+                  <span> ${totalPrice}.00</span>
                 </li>
               </ul>
               <Link className="btn" to="/checkout">

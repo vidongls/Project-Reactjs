@@ -5,7 +5,7 @@ import { FaHeart, FaHourglass } from 'react-icons/fa'
 import Grow from '@material-ui/core/Grow'
 import { useParams } from 'react-router-dom'
 import { addToCart, setTotalPrice } from '../../Slice/CartSlice'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 function DetailAction(props) {
   const [addWish, setAddWish] = useState(false)

@@ -8,13 +8,13 @@ function HomeItemAction(props) {
     setState(!state)
   }
   const { id } = props
-  const handleAdd = (id) => {
-    // console.log(id)
+  const handleAdd = () => {
+    console.log('testt')
   }
   return (
     <>
       <div className="product-action">
-        <div className="product-action__item">
+        <div className="product-action__item" onClick={handleAdd}>
           <FaShoppingCart />
         </div>
         <div className="product-action__item">

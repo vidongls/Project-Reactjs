@@ -12,11 +12,12 @@ function SideAction(props) {
   const [scroll, setScroll] = useState(false)
 
   useEffect(() => {
-    window.addEventListener('scroll', () => {
+    const handleScroll = () => {
       setScroll(window.scrollY > 300)
-    })
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
-
   return (
     <div className="side">
       <div

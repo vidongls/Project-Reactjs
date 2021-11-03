@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Header from '../Component/HeaderComponent/Header'
 import HomeSlider from '../Component/HomeComponent/HomeSlider'
 import HomeBanner from '../Component/HomeComponent/HomeBanner'
@@ -11,7 +10,6 @@ import HomeContact from '../Component/HomeComponent/HomeContact'
 import Footer from '../Component/Footer/Footer'
 import SideAction from '../Component/SideAction/SideAction'
 import HomeListItemSeller from '../Component/HomeComponent/HomeListItemSeller'
-HomeLayout.propTypes = {}
 
 function HomeLayout(props) {
   return (

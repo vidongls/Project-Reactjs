@@ -1,14 +1,61 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as yup from 'yup'
+import { LoginAction } from '../../Slice/LoginSlice'
+import { unwrapResult } from '@reduxjs/toolkit'
+import { useDispatch } from 'react-redux'
+import { useSnackbar } from 'notistack'
+import Grow from '@material-ui/core/Grow'
+
+const schema = yup.object().shape({
+  password: yup.string().required('Vui lòng nhập mật khẩu'),
+  userName: yup.string().required('Không được bỏ trống'),
+})
+
 function Login(props) {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
-  } = useForm()
-  const onSubmit = (data) => console.log(data)
+  } = useForm({
+    resolver: yupResolver(schema),
+  })
+  const { enqueueSnackbar } = useSnackbar()
+  const dispatch = useDispatch()
+
+  const onSubmit = async (data) => {
+    const userData = {
+      userName: data.userName,
+      password: data.password,
+    }
+
+    const action = LoginAction(userData)
+    const resultAction = await dispatch(action)
+    let user = unwrapResult(resultAction)
+    if (user.length !== 0) {
+      enqueueSnackbar('Đăng nhập thành công', {
+        anchorOrigin: {
+          vertical: 'top',
+          horizontal: 'left',
+        },
+        autoHideDuration: 3000,
+        variant: 'success',
+        TransitionComponent: Grow,
+      })
+    } else {
+      enqueueSnackbar('Đăng nhập thất bại', {
+        anchorOrigin: {
+          vertical: 'top',
+          horizontal: 'left',
+        },
+        autoHideDuration: 3000,
+        variant: 'error',
+        TransitionComponent: Grow,
+      })
+    }
+  }
 
   return (
     <div className="login">

@@ -39,7 +39,6 @@ const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => (
 function HomeListItemSeller(props) {
   const [products, setProducts] = useState([])
   const sort = useSelector((state) => state.sort.dataTopSeller)
-  console.log(sort)
   let newArrTop = []
   // console.log(sort)
   const { row, title } = props

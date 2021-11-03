@@ -3,9 +3,9 @@ import Header from '../HeaderComponent/Header'
 
 function ErrorComponent(props) {
   return (
-    <div>
-      <Header />
-      this is error 404
+    <div className="error">
+      <h2>404</h2>
+      <h3>This page could not be found</h3>
     </div>
   )
 }

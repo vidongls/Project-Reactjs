@@ -55,7 +55,7 @@ body {
   }
   @include md {
     grid-template-columns: repeat(2, 1fr);
-    padding: 32px 30px;
+    padding: 20px 30px;
   }
   @include xl {
     grid-template-columns: repeat(3, 1fr);
@@ -70,8 +70,9 @@ body {
     top: 0;
     width: 100%;
     z-index: 99;
-    padding: 0px 10px;
-
+    @include xl {
+      padding: 0px 10px;
+    }
     .header-list {
       transition: all 0.3s ease;
       li {
@@ -4026,4 +4027,29 @@ body {
   }
 }
 //***************
-//Register
+//Error Component
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  h2 {
+    display: inline-block;
+    border-right: 1px solid rgba(0, 0, 0, 0.3);
+    margin: 0;
+    margin-right: 20px;
+    padding: 10px 23px 10px 0;
+    font-size: 24px;
+    font-weight: 500;
+    vertical-align: top;
+  }
+  h3 {
+    display: inline-block;
+    text-align: left;
+    line-height: 49px;
+    height: 49px;
+    vertical-align: middle;
+    font-size: 14px;
+    font-weight: 400;
+  }
+}

@@ -5,6 +5,9 @@ import { useDispatch } from 'react-redux'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import { RegisterAction } from '../../Slice/RegisterSlice'
+import { unwrapResult } from '@reduxjs/toolkit'
+import { useSnackbar } from 'notistack'
+import Grow from '@material-ui/core/Grow'
 
 const schema = yup.object().shape({
   email: yup
@@ -36,18 +39,41 @@ function Register(props) {
   } = useForm({
     resolver: yupResolver(schema),
   })
-
+  const { enqueueSnackbar } = useSnackbar()
   const dispatch = useDispatch()
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     let userDate = {
       email: data.email,
       userName: data.userName,
       password: data.password,
       retypePass: data.retypePass,
     }
-    const actions = RegisterAction(userDate)
-    dispatch(actions)
+
+    try {
+      const actions = RegisterAction(userDate)
+      const resultAction = await dispatch(actions)
+      const user = unwrapResult(resultAction)
+      enqueueSnackbar('Đăng ký thành công', {
+        anchorOrigin: {
+          vertical: 'top',
+          horizontal: 'left',
+        },
+        autoHideDuration: 3000,
+        variant: 'success',
+        TransitionComponent: Grow,
+      })
+    } catch (error) {
+      enqueueSnackbar('Đăng ký thất bại', {
+        anchorOrigin: {
+          vertical: 'top',
+          horizontal: 'left',
+        },
+        autoHideDuration: 3000,
+        variant: 'error',
+        TransitionComponent: Grow,
+      })
+    }
   }
 
   return (
