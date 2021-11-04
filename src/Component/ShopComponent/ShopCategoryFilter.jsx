@@ -16,6 +16,10 @@ function ShopCategoryFilter(props) {
       // console.log(data.map((val) => val.category.map((item) => item)).flat())
     }
     getProducts()
+
+    return () => {
+      setProducts([])
+    }
   }, [])
 
   let getCategory = [

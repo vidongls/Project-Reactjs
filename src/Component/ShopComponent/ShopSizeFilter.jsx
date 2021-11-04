@@ -17,6 +17,10 @@ function ShopSizeFilter(props) {
       // console.log(data.filter((val) => val.size))
     }
     getProducts()
+
+    return () => {
+      setProducts([])
+    }
   }, [])
 
   let getSize = [

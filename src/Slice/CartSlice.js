@@ -39,11 +39,10 @@ export const CartSlice = createSlice({
           (total, item) => total + item.product.mainPrice * item.quantity,
           0
         )
-        localStorage.setItem('totalPrice', JSON.stringify(state.totalPrice))
       } else {
         state.totalPrice = 0
-        localStorage.setItem('totalPrice', JSON.stringify(state.totalPrice))
       }
+      localStorage.setItem('totalPrice', JSON.stringify(state.totalPrice))
     },
     removeItemCart(state, action) {
       const id = action.payload

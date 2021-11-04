@@ -3936,6 +3936,7 @@ body {
     width: 100%;
     padding: 90px;
     border: 2px solid #eaedff;
+
     @include lg {
       width: 66%;
     }
@@ -3968,6 +3969,9 @@ body {
       margin-top: 0.25rem;
       font-size: 80%;
       color: #dc3545;
+      height: unset !important;
+      display: unset !important;
+
       // margin-bottom: 18px;
     }
   }
@@ -4148,6 +4152,61 @@ body {
       border-bottom: 2px solid #898989;
       text-align: center;
       letter-spacing: 2px;
+    }
+  }
+}
+
+//************
+//Table
+
+.table {
+  padding: 100px 15px;
+  table {
+    background: #fff;
+    border: 1px solid #eaedff;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 0;
+    border-collapse: collapse;
+    th,
+    td,
+    tr {
+      border: 1px solid #eaedff;
+    }
+    thead {
+      th {
+        padding: 10px;
+        font-size: 14px;
+      }
+    }
+    tbody {
+      td {
+        padding: 20px 10px;
+        vertical-align: middle;
+        font-size: 16px;
+        img {
+          width: 125px;
+          object-fit: cover;
+          max-width: 100%;
+        }
+        a {
+          color: #10111e;
+          font-size: 16px;
+          font-weight: 400;
+        }
+        span {
+          font-size: 16px;
+          font-weight: 400;
+        }
+      }
+      .btn-add {
+        cursor: pointer;
+        background-color: #84b77c;
+        transition: all 0.3s ease;
+        &:hover {
+          background-color: $cl1;
+        }
+      }
     }
   }
 }

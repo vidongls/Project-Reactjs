@@ -24,7 +24,12 @@ function HomeItemAction(props) {
       let data = productItems.data
       setProducts(data)
     }
+
     getProducts()
+
+    return () => {
+      setProducts([])
+    }
   }, [])
 
   const handleAdd = () => {

@@ -13,6 +13,7 @@ import BlogDetailLayout from './Layouts/BlogDetailLayout'
 import CartLayout from './Layouts/CartLayout'
 import LoginLayout from './Layouts/LoginLayout'
 import RegisterLayout from './Layouts/RegisterLayout'
+import WishListLayout from './Layouts/WishListLayout'
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/cart" component={CartLayout} exact></Route>
         <Route path="/login" component={LoginLayout} exact></Route>
         <Route path="/register" component={RegisterLayout} exact></Route>
+        <Route path="/wishlist" component={WishListLayout} exact></Route>
         <Route
           path="/details/:productID"
           component={DetailLayout}

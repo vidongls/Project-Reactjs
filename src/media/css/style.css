@@ -5779,6 +5779,8 @@ body {
   margin-top: 0.25rem;
   font-size: 80%;
   color: #dc3545;
+  height: unset !important;
+  display: unset !important;
 }
 
 .login-action {
@@ -5999,5 +6001,64 @@ body {
   border-bottom: 2px solid #898989;
   text-align: center;
   letter-spacing: 2px;
+}
+
+.table {
+  padding: 100px 15px;
+}
+
+.table table {
+  background: #fff;
+  border: 1px solid #eaedff;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 0;
+  border-collapse: collapse;
+}
+
+.table table th,
+.table table td,
+.table table tr {
+  border: 1px solid #eaedff;
+}
+
+.table table thead th {
+  padding: 10px;
+  font-size: 14px;
+}
+
+.table table tbody td {
+  padding: 20px 10px;
+  vertical-align: middle;
+  font-size: 16px;
+}
+
+.table table tbody td img {
+  width: 125px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  max-width: 100%;
+}
+
+.table table tbody td a {
+  color: #10111e;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.table table tbody td span {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.table table tbody .btn-add {
+  cursor: pointer;
+  background-color: #84b77c;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.table table tbody .btn-add:hover {
+  background-color: #fe4536;
 }
 /*# sourceMappingURL=style.css.map */

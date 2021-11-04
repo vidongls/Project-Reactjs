@@ -15,6 +15,10 @@ function ShopBrandFilter(props) {
       setProducts(data)
     }
     getProducts()
+
+    return () => {
+      setProducts([])
+    }
   }, [])
   let getBrand = [...new Set(products.map((val) => val.brand))]
   const handleValue = (e) => {

@@ -53,6 +53,7 @@ function HomeListItem(props) {
           newArr = [...data]
           break
         }
+
         case 'Furniture': {
           let newFur = data.filter((val) => {
             return val.category.indexOf(sort.toLowerCase()) !== -1
@@ -60,6 +61,7 @@ function HomeListItem(props) {
           newArr = [...newFur]
           break
         }
+
         case 'ManCloth': {
           let newMan = data.filter((val) => {
             return (
@@ -70,6 +72,7 @@ function HomeListItem(props) {
           newArr = [...newMan]
           break
         }
+
         case 'Woman Cloth': {
           let newLady = data.filter((val) => {
             return (
@@ -84,6 +87,9 @@ function HomeListItem(props) {
       setProducts(newArr)
     }
     getProducts()
+    return () => {
+      setProducts([])
+    }
   }, [sort])
   // const handleChange = (event, newValue) => {
   //   setValue(newValue)

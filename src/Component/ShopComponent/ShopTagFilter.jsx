@@ -11,14 +11,18 @@ function ShopTagFilter(props) {
       const productItems = await ProductApi.getAll()
       let data = productItems.data
       setProducts(data)
-      //   console.log(data.map((val) => val.tags.map((item) => item)).flat())
     }
     getProducts()
+
+    return () => {
+      setProducts([])
+    }
   }, [])
 
   let getTag = [
     ...new Set(products.map((val) => val.tags.map((item) => item)).flat()),
   ]
+
   // console.log()
   const handleValue = (e) => {
     if (arrTag.indexOf(e.target.value) !== -1) {
@@ -27,7 +31,7 @@ function ShopTagFilter(props) {
 
     arrTag.push(e.target.value)
 
-    console.log(arrTag)
+    // console.log(arrTag)
   }
   return (
     <div className="sidebar-tag">

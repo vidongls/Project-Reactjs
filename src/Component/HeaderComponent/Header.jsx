@@ -197,7 +197,7 @@ function Header(props) {
                   <Link to="/checkout">Checkout</Link>
                 </li>
                 <li>
-                  <Link to="/wishlish">Wishlist</Link>
+                  <Link to="/wishlist">Wishlist</Link>
                 </li>
                 <li>
                   <Link to="/compare">Compare</Link>

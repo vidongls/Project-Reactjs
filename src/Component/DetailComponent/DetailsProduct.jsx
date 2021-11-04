@@ -26,6 +26,10 @@ function Details(props) {
       setProducts(data)
     }
     getProducts()
+
+    return () => {
+      setProducts([])
+    }
   }, [])
   return (
     <div className="detail">

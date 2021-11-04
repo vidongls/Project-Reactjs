@@ -28,6 +28,10 @@ function ProductList(props) {
       setLoading(false)
     }
     getProducts()
+
+    return () => {
+      setProducts([])
+    }
   }, [])
   // Get current product
   const indexOfLastProducts = currentPage * productPerPage
