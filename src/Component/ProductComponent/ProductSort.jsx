@@ -1,11 +1,8 @@
 import { React, useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import PropTypes from 'prop-types'
 import { sortData } from '../../Slice/ProductSortSlice'
 import Tabs from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
-
-ProductSort.propTypes = {}
 
 function ProductSort(props) {
   const [value, setValue] = useState('All')

@@ -32,6 +32,7 @@ function ShopDragFilter(props) {
         getAriaValueText={valuetext}
         disableSwap
       />
+
       <div className="sidebar-drag__price">
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <span>$0</span> - <span>$257</span>
@@ -41,5 +42,4 @@ function ShopDragFilter(props) {
     </div>
   )
 }
-
 export default ShopDragFilter

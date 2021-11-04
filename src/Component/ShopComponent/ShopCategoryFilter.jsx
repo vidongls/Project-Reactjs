@@ -13,7 +13,7 @@ function ShopCategoryFilter(props) {
       const productItems = await ProductApi.getAll()
       let data = productItems.data
       setProducts(data)
-      console.log(data.map((val) => val.category.map((item) => item)).flat())
+      // console.log(data.map((val) => val.category.map((item) => item)).flat())
     }
     getProducts()
   }, [])

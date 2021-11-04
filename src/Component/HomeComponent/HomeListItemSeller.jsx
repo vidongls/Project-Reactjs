@@ -144,12 +144,20 @@ function HomeListItemSeller(props) {
               products.map((item, index) => {
                 return (
                   <div className="product-item" key={index}>
-                    <Link to={`/details/${item.id}`} className="product-img">
-                      <img src={item.img1} className="product-img__first"></img>
-                      <img
-                        src={item.img2}
-                        className="product-img__secondary"
-                      ></img>
+                    <div className="product-img">
+                      <Link to={`/details/${item.id}`}>
+                        <img
+                          src={item.img1}
+                          className="product-img__first"
+                          alt=""
+                        ></img>
+                        <img
+                          src={item.img2}
+                          className="product-img__secondary"
+                          alt=""
+                        ></img>
+                      </Link>
+
                       <HomeItemAction id={item.id} />
                       <div className="product-tag">
                         <span className={item.new === true ? 'new' : null}>
@@ -159,7 +167,7 @@ function HomeListItemSeller(props) {
                           {item.new === true ? 'new' : null}
                         </span>
                       </div>
-                    </Link>
+                    </div>
                     <div className="product-content">
                       <div className="product-category">
                         <Link to={`/details/${item.id}`}>

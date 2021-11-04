@@ -7,7 +7,7 @@ import { LoginAction } from '../../Slice/LoginSlice'
 import { unwrapResult } from '@reduxjs/toolkit'
 import { useDispatch } from 'react-redux'
 import { useSnackbar } from 'notistack'
-import Grow from '@material-ui/core/Grow'
+// import Grow from '@material-ui/core/Grow'
 
 const schema = yup.object().shape({
   password: yup.string().required('Vui lòng nhập mật khẩu'),
@@ -42,7 +42,7 @@ function Login(props) {
         },
         autoHideDuration: 3000,
         variant: 'success',
-        TransitionComponent: Grow,
+        // TransitionComponent: Grow,
       })
     } else {
       enqueueSnackbar('Đăng nhập thất bại', {
@@ -52,7 +52,7 @@ function Login(props) {
         },
         autoHideDuration: 3000,
         variant: 'error',
-        TransitionComponent: Grow,
+        // TransitionComponent: Grow,
       })
     }
   }

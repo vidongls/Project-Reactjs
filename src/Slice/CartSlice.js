@@ -40,6 +40,9 @@ export const CartSlice = createSlice({
           0
         )
         localStorage.setItem('totalPrice', JSON.stringify(state.totalPrice))
+      } else {
+        state.totalPrice = 0
+        localStorage.setItem('totalPrice', JSON.stringify(state.totalPrice))
       }
     },
     removeItemCart(state, action) {

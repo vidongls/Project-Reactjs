@@ -63,22 +63,27 @@ function ShopListItem(props) {
                     padding: '0px',
                   }}
                 >
-                  <Link to={`/details/${item.id}`} className="product-img">
-                    <img
-                      style={{
-                        minHeight: 'unset',
-                      }}
-                      src={item.img1}
-                      className="product-img__first"
-                    ></img>
-                    <img
-                      style={{
-                        minHeight: 'unset',
-                      }}
-                      src={item.img2}
-                      className="product-img__secondary"
-                    ></img>
-                    <HomeItemAction />
+                  <div className="product-img">
+                    <Link to={`/details/${item.id}`}>
+                      <img
+                        alt=""
+                        style={{
+                          minHeight: 'unset',
+                        }}
+                        src={item.img1}
+                        className="product-img__first"
+                      ></img>
+                      <img
+                        alt=""
+                        style={{
+                          minHeight: 'unset',
+                        }}
+                        src={item.img2}
+                        className="product-img__secondary"
+                      ></img>
+                    </Link>
+
+                    <HomeItemAction id={item.id} />
                     <div className="product-tag">
                       <span className={item.new === true ? 'new' : null}>
                         {item.new === true ? 'new' : null}
@@ -87,7 +92,7 @@ function ShopListItem(props) {
                         {item.new === true ? 'new' : null}
                       </span>
                     </div>
-                  </Link>
+                  </div>
                   <div className="product-content">
                     <div className="product-category">
                       <Link to={`/details/${item.id}`}>
@@ -130,8 +135,13 @@ function ShopListItem(props) {
                   }}
                 >
                   <Link to={`/details/${item.id}`} className="product-img">
-                    <img src={item.img1} className="product-img__first"></img>
                     <img
+                      alt=""
+                      src={item.img1}
+                      className="product-img__first"
+                    ></img>
+                    <img
+                      alt=""
                       src={item.img2}
                       className="product-img__secondary"
                     ></img>
@@ -170,7 +180,7 @@ function ShopListItem(props) {
                       odit aut fugit, sed quia consequuntur magni dolores eos
                       qui ratione voluptatem sequi nesciunt.
                     </p>
-                    <HomeItemAction />
+                    <HomeItemAction id={item.id} />
                   </div>
                 </div>
               )

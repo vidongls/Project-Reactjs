@@ -5,15 +5,9 @@ import TextareaAutosize from '@mui/material/TextareaAutosize'
 
 function DetailForm(props) {
   const [value, setValue] = useState(4)
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm()
+  const { register, handleSubmit } = useForm()
   const onSubmit = (data) => console.log(data)
 
-  console.log(watch('example'))
   return (
     <div className="detail-form">
       <h4>Add a Review</h4>
@@ -38,10 +32,7 @@ function DetailForm(props) {
           <div style={{ minWidth: '50%', paddingRight: '15px' }}>
             {' '}
             <h5>Name</h5>
-            <input
-              defaultValue="test"
-              {...register('name', { required: true })}
-            />
+            <input {...register('name', { required: true })} />
           </div>
           <div style={{ minWidth: '50%', paddingLeft: '15px' }}>
             <h5>Email</h5>

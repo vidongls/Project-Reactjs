@@ -2,14 +2,14 @@ import { React, useState } from 'react'
 import { useSnackbar } from 'notistack'
 import Button from '@mui/material/Button'
 import { FaHeart, FaHourglass } from 'react-icons/fa'
-import Grow from '@material-ui/core/Grow'
+// import Grow from '@material-ui/core/Grow'
 import { useParams } from 'react-router-dom'
 import { addToCart, setTotalPrice } from '../../Slice/CartSlice'
 import { useDispatch } from 'react-redux'
 
 function DetailAction(props) {
   const [addWish, setAddWish] = useState(false)
-  const { enqueueSnackbar, closeSnackbar } = useSnackbar()
+  const { enqueueSnackbar } = useSnackbar()
   const [quantity, SetQuantity] = useState(1)
   // const totalPrice = useSelector((state) => state.cart.setTotalPrice)
 
@@ -27,7 +27,7 @@ function DetailAction(props) {
       },
       autoHideDuration: 2000,
       variant: status,
-      TransitionComponent: Grow,
+      // TransitionComponent: Grow,
     })
   }
 
@@ -45,7 +45,7 @@ function DetailAction(props) {
   }
 
   const handleDecrease = () => {
-    if (quantity > 0) {
+    if (quantity > 1) {
       SetQuantity(quantity - 1)
     }
   }

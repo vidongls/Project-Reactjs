@@ -7,7 +7,7 @@ import * as yup from 'yup'
 import { RegisterAction } from '../../Slice/RegisterSlice'
 import { unwrapResult } from '@reduxjs/toolkit'
 import { useSnackbar } from 'notistack'
-import Grow from '@material-ui/core/Grow'
+// import Grow from '@material-ui/core/Grow'
 
 const schema = yup.object().shape({
   email: yup
@@ -61,7 +61,7 @@ function Register(props) {
         },
         autoHideDuration: 3000,
         variant: 'success',
-        TransitionComponent: Grow,
+        // TransitionComponent: Grow,
       })
     } catch (error) {
       enqueueSnackbar('Đăng ký thất bại', {
@@ -71,7 +71,7 @@ function Register(props) {
         },
         autoHideDuration: 3000,
         variant: 'error',
-        TransitionComponent: Grow,
+        // TransitionComponent: Grow,
       })
     }
   }

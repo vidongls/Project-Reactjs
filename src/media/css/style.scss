@@ -279,10 +279,22 @@ body {
       width: 350px;
       z-index: 9;
       box-shadow: 0 12px 24px 0 $cl1;
+      @include xs {
+        padding: 18px;
+        right: -55px;
+        width: 300px;
+      }
       h3 {
         font-size: 28px;
         font-weight: 500;
         color: $text1;
+        line-height: 0.8;
+      }
+      &-list {
+        max-height: 350px;
+        min-height: 30px;
+        margin-right: -10px;
+        overflow: auto;
       }
       &-price {
         border-top: 1px solid #cacadb;
@@ -319,12 +331,13 @@ body {
         }
       }
       .cart-item {
-        padding-left: 15px;
+        // padding-left: 15px;
         margin-bottom: 22px;
         display: flex;
         justify-content: space-between;
       }
       .cart-img {
+        margin-right: 10px;
         img {
           width: 85px;
         }
@@ -1096,6 +1109,7 @@ body {
       border-radius: 50%;
       margin: 0 6px;
       transition: all 0.3s ease;
+      cursor: pointer;
       &:hover {
         color: #ffffff;
         background-color: $cl1;

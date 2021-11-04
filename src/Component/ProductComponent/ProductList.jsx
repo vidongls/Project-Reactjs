@@ -1,5 +1,4 @@
 import { React, useEffect, useState } from 'react'
-import PropTypes from 'prop-types'
 import Tab from '@mui/material/Tab'
 import TabList from '@material-ui/lab/TabList'
 import TabPanel from '@material-ui/lab/TabPanel'
@@ -9,7 +8,6 @@ import { Link } from 'react-router-dom'
 import ProductApi from '../../Api/ProductApi'
 import HomeItemAction from '../HomeComponent/HomeItemAction'
 import Pagination from '../Pagination/Pagination'
-ProductList.propTypes = {}
 
 function ProductList(props) {
   const [products, setProducts] = useState([])
