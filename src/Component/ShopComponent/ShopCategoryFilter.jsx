@@ -29,7 +29,7 @@ function ShopCategoryFilter(props) {
 
     arrCategory.push(e.target.value)
 
-    console.log(arrCategory)
+    // console.log(arrCategory)
   }
   return (
     <div className="sidebar-category">

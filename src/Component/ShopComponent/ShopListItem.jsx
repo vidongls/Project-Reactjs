@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import ProductApi from '../../Api/ProductApi'
 import HomeItemAction from '../HomeComponent/HomeItemAction'
 import Pagination from '../Pagination/Pagination'
+import { useSelector } from 'react-redux'
 
 function ShopListItem(props) {
   const [products, setProducts] = useState([])
@@ -11,15 +12,26 @@ function ShopListItem(props) {
   const [currentPage, setCurrentPage] = useState(1)
   const [productPerPage] = useState(6)
 
+  let search = useSelector((state) => state.search.data)
+  let newArr = []
   useEffect(() => {
     const getProducts = async () => {
       const productItems = await ProductApi.getAll()
       let data = productItems.data
-      setProducts(data)
-      setLoading(false)
+      // setProducts(data)
+      newArr = [...data]
+
+      //Search item
+      let SearchItems = data.filter((item) => {
+        return item.name.toLowerCase().indexOf(search.toLowerCase()) !== -1
+      })
+
+      newArr = [...SearchItems]
+
+      setProducts(newArr)
     }
     getProducts()
-  }, [])
+  }, [search])
   // Get current product
   const indexOfLastProducts = currentPage * productPerPage
   const indexOfFirstProducts = indexOfLastProducts - productPerPage

@@ -75,7 +75,7 @@ body {
     }
     .header-list {
       transition: all 0.3s ease;
-      li {
+      > li {
         padding: 33px 10px;
       }
     }
@@ -1114,7 +1114,7 @@ body {
     position: absolute;
     top: 30px;
     left: 30px;
-    z-index: 99;
+    z-index: 30;
     span {
       display: none;
       background: #84b77c;
@@ -2295,6 +2295,19 @@ body {
       // font-family: Rubik, sans-serif;
       margin-top: 20px;
       margin-bottom: 30px;
+      display: flex;
+      justify-content: space-between;
+      .filter {
+        padding: 8px 14px;
+        background-color: #84b77c;
+        color: #ffffff;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        &:hover {
+          background-color: $cl1;
+        }
+      }
     }
   }
   &-size {
@@ -4051,5 +4064,76 @@ body {
     vertical-align: middle;
     font-size: 14px;
     font-weight: 400;
+  }
+}
+
+//**********************
+// Search products
+
+.search {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  // display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 121;
+  background: rgba(0, 0, 0, 0.9);
+  &-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  &-close {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+  }
+  &-cell {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .btn {
+      padding: 10px 20px;
+      cursor: pointer;
+      margin-top: 24px;
+      background-color: transparent;
+      &:hover {
+        color: $cl1;
+      }
+      svg {
+        font-size: 28px;
+        color: inherit;
+      }
+    }
+  }
+  &-field {
+    width: 50%;
+    position: relative;
+    animation: all 0.3s ease;
+
+    input {
+      width: 100%;
+      height: 70px;
+      padding: 0 50px;
+      text-transform: uppercase;
+      background: transparent;
+      font-size: 25px;
+      color: #fff;
+      border-bottom: 2px solid #898989;
+      text-align: center;
+      letter-spacing: 2px;
+    }
   }
 }

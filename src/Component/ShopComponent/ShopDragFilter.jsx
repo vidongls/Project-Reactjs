@@ -33,7 +33,10 @@ function ShopDragFilter(props) {
         disableSwap
       />
       <div className="sidebar-drag__price">
-        <span>$0</span> - <span>$257</span>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <span>$0</span> - <span>$257</span>
+        </div>
+        <span className="filter">Filter</span>
       </div>
     </div>
   )

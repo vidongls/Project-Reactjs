@@ -1,16 +1,19 @@
 import { React, useState, useEffect } from 'react'
 import '../../media/css/style.css'
 import logo from '../../media/img/logo.png'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link, NavLink } from 'react-router-dom'
-import { FaRegUser, FaSearch, FaShoppingCart } from 'react-icons/fa'
+import { FaRegUser, FaSearch, FaShoppingCart, FaTimes } from 'react-icons/fa'
 import HeaderCart from './HeaderCart'
+import { useForm } from 'react-hook-form'
+import { searchData } from '../../Slice/ProductSearchSlice'
 
 function Header(props) {
   const [showMenu, setShowMenu] = useState(false)
-
   const [showLogin, setShowLogin] = useState(true)
   const [scroll, setScroll] = useState(false)
+  const [search, setSearch] = useState(false)
+  const dispatch = useDispatch()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,13 +22,28 @@ function Header(props) {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
   let user = useSelector((state) => state.login.currentUser)
-  // console.log(user)
 
   const handleMenu = () => {
     setShowMenu(!showMenu)
   }
 
+  const { register, handleSubmit } = useForm()
+  const onSubmit = (data) => {
+    // console.log(data)
+    let searchString = data.search
+    const action = searchData(searchString)
+    dispatch(action)
+  }
+
+  const handleOpenSearch = () => {
+    setSearch(true)
+  }
+  const handleCloseSearch = (e) => {
+    e.stopPropagation()
+    setSearch(false)
+  }
   return (
     <>
       <div className={scroll ? 'header active' : 'header'}>
@@ -196,9 +214,32 @@ function Header(props) {
         </ul>
         <div className="mobile-wrapbtn">
           <ul className="header-options">
-            <li className="btn-search">
+            <li className="btn-search" onClick={handleOpenSearch}>
               <FaSearch />
             </li>
+            {search && (
+              <div className="search">
+                <div className="search-inner">
+                  <FaTimes
+                    className="search-close"
+                    onClick={handleCloseSearch}
+                  />
+                  <div className="search-cell">
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                      <div className="search-field">
+                        <input
+                          placeholder="Search Entire Store..."
+                          {...register('search', { required: true })}
+                        />
+                      </div>
+                      <button type="submit" className="btn">
+                        <FaSearch />
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            )}
             <li className="btn-user">
               <FaRegUser />
             </li>
