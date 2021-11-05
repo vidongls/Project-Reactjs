@@ -31,9 +31,9 @@ function ShopListItem(props) {
       setProducts(newArr)
     }
     getProducts()
-    return () => {
-      setProducts([])
-    }
+    // return () => {
+    //   setProducts([])
+    // }
   }, [search])
   // Get current product
   const indexOfLastProducts = currentPage * productPerPage

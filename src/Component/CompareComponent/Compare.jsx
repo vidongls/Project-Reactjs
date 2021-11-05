@@ -2,21 +2,20 @@ import React from 'react'
 import { FaRegTrashAlt } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
+import { removeItemCompare } from '../../Slice/CompareSlice'
 import { useSnackbar } from 'notistack'
-import { removeItemWishList } from '../../Slice/WishListSlice'
-import { addToCart, setTotalPrice } from '../../Slice/CartSlice'
 
-function WhishList(props) {
-  const wishListItems = useSelector((state) => state.wishlist.wishListItems)
+function Compare(props) {
+  const compareItems = useSelector((state) => state.compare.compareItems)
 
   const dispatch = useDispatch()
 
   const { enqueueSnackbar } = useSnackbar()
 
   const handleDelete = (id) => {
-    const actionDelete = removeItemWishList(id)
+    const actionDelete = removeItemCompare(id)
     dispatch(actionDelete)
-    enqueueSnackbar('Remove item in wishlist.', {
+    enqueueSnackbar('Remove item in compare.', {
       anchorOrigin: {
         vertical: 'top',
         horizontal: 'left',
@@ -25,45 +24,26 @@ function WhishList(props) {
       variant: 'error',
     })
   }
-  const handleAdd = (id) => {
-    let product = wishListItems.filter((item) => item.product.id === id)
-    const itemData = {
-      product: product,
-      id: id,
-      quantity: 1,
-    }
-    const actionAddToCart = addToCart(itemData)
-    dispatch(actionAddToCart)
-    const actionTotalPrice = setTotalPrice()
-    dispatch(actionTotalPrice)
-    enqueueSnackbar('Add item in Cart', {
-      anchorOrigin: {
-        vertical: 'top',
-        horizontal: 'left',
-      },
-      autoHideDuration: 2000,
-      variant: 'success',
-    })
-  }
+
   return (
     <div className="table">
       <div className="container">
-        {wishListItems.length !== 0 ? (
+        {compareItems.length !== 0 ? (
           <div className="table-content">
             <table>
               <thead>
                 <tr>
                   <th>Images</th>
                   <th>Product</th>
+                  <th>Brand</th>
+                  <th>Stock</th>
                   <th>Unit Price</th>
-                  <th>Quantity</th>
-                  <th>Total</th>
                   <th>Remove</th>
                 </tr>
               </thead>
               <tbody>
-                {wishListItems &&
-                  wishListItems.map((item, index) => {
+                {compareItems &&
+                  compareItems.map((item, index) => {
                     return (
                       <tr key={index}>
                         <td>
@@ -77,16 +57,13 @@ function WhishList(props) {
                           </Link>
                         </td>
                         <td>
-                          <span>${item.product.mainPrice}.00</span>
+                          <span style={{ textTransform: 'capitalize' }}>
+                            {item.product.brand}
+                          </span>
                         </td>
                         <td>
-                          <div
-                            className="btn btn-add"
-                            onClick={() => {
-                              handleAdd(item.id)
-                            }}
-                          >
-                            add to cart
+                          <div style={{ color: '#007bff' }}>
+                            {item.product.stock ? 'In Stock' : 'Out Of Stock'}
                           </div>
                         </td>
                         <td>
@@ -114,4 +91,4 @@ function WhishList(props) {
   )
 }
 
-export default WhishList
+export default Compare

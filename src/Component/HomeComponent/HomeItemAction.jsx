@@ -4,15 +4,11 @@ import ProductApi from '../../Api/ProductApi'
 import { addToCart, setTotalPrice } from '../../Slice/CartSlice'
 import { useDispatch } from 'react-redux'
 import { useSnackbar } from 'notistack'
+import { addToCompare } from '../../Slice/CompareSlice'
 
 function HomeItemAction(props) {
-  const [state, setState] = useState(false)
   const [products, setProducts] = useState([])
   const dispatch = useDispatch()
-
-  const handleClass = () => {
-    setState(!state)
-  }
 
   const { enqueueSnackbar } = useSnackbar()
 
@@ -53,7 +49,26 @@ function HomeItemAction(props) {
       })
     }
   }
+  const handleCompare = () => {
+    if (products.length !== 0) {
+      const itemData = {
+        product: products,
+        id: id,
+      }
 
+      const actionCompare = addToCompare(itemData)
+      dispatch(actionCompare)
+
+      enqueueSnackbar('Add item in Compare.', {
+        anchorOrigin: {
+          vertical: 'top',
+          horizontal: 'left',
+        },
+        autoHideDuration: 2000,
+        variant: 'success',
+      })
+    }
+  }
   return (
     <>
       <div className="product-action">
@@ -63,12 +78,7 @@ function HomeItemAction(props) {
         <div className="product-action__item">
           <FaRegEye />
         </div>
-        <div
-          onClick={handleClass}
-          className={
-            state ? 'product-action__item active' : 'product-action__item'
-          }
-        >
+        <div onClick={handleCompare} className="product-action__item">
           <FaExchangeAlt />
         </div>
       </div>

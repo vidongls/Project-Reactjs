@@ -1,7 +1,14 @@
 import { React, useEffect, useState } from 'react'
 import { FaArrowUp, FaHeart, FaExchangeAlt } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+
 function SideAction(props) {
+  const wishListItems = useSelector((state) => state.wishlist.wishListItems)
+  const compareItems = useSelector((state) => state.compare.compareItems)
+
+  let countWishList = wishListItems.length
+  let countCompare = compareItems.length
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -29,13 +36,13 @@ function SideAction(props) {
       <div className="side-topAction">
         <Link to="/wishlist">
           <FaHeart />
-          <span>0</span>
+          <span>{countWishList}</span>
         </Link>
       </div>
       <div className="side-topAction compare">
         <Link to="/compare">
           <FaExchangeAlt />
-          <span>0</span>
+          <span>{countCompare}</span>
         </Link>
       </div>
     </div>

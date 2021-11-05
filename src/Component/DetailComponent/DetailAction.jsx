@@ -6,6 +6,7 @@ import { FaHeart, FaHourglass } from 'react-icons/fa'
 import { useParams } from 'react-router-dom'
 import { addToCart, setTotalPrice } from '../../Slice/CartSlice'
 import { useDispatch } from 'react-redux'
+import { addToWishList } from '../../Slice/WishListSlice'
 
 function DetailAction(props) {
   const [addWish, setAddWish] = useState(false)
@@ -32,11 +33,17 @@ function DetailAction(props) {
   }
 
   const handleClickWishList = () => {
-    setAddWish(!addWish)
-    if (addWish === false) {
-      enque('Add item in wishlist', 'success')
-    } else {
-      enque('Remove item in wishlist', 'error')
+    if (product.length !== 0) {
+      const itemData = {
+        product: product,
+        id: productID,
+        quantity: 1,
+      }
+      // console.log(itemData)
+      const actionWishList = addToWishList(itemData)
+      dispatch(actionWishList)
+      enque('Successfully add item in wishlist.', 'success')
+      setAddWish(!addWish)
     }
   }
 

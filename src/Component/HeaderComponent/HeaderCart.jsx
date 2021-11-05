@@ -70,7 +70,7 @@ function HeaderCart(props) {
         <li>
           <div className="minicart-checkout">
             <Link to="/cart">Shopping Cart</Link>
-            <Link to="/chekout">Checkout</Link>
+            <Link to="/checkout">Checkout</Link>
           </div>
         </li>
       </ul>

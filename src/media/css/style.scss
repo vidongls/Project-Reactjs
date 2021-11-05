@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800&display=swap');
 $cl1: #fe4536;
 $text1: #10111e;
-body {
+* {
   font-family: Rubik, sans-serif;
 }
 .container {
@@ -1893,7 +1893,7 @@ body {
       padding: 50px;
     }
     @include lg {
-      padding: 0 90px;
+      padding: 0 70px;
       padding-top: 80px;
     }
     padding-bottom: 60px;
@@ -1907,12 +1907,13 @@ body {
       grid-template-columns: repeat(2, 1fr);
       grid-gap: 50px;
     }
-    @include xl {
+    @include lg {
       grid-gap: 20px;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: 2fr 1fr 1fr 1fr 2fr;
     }
-    @include xxl {
-      grid-template-columns: repeat(5, 1fr);
+    @include xl {
+      grid-template-columns: 2fr 1fr 1fr 1fr 2fr;
+      grid-gap: unset;
     }
   }
   &-box {
@@ -4161,7 +4162,17 @@ body {
 
 .table {
   padding: 100px 15px;
+  .pro-nof {
+    font-weight: 500;
+    font-size: 35px;
+    text-align: center;
+    padding: 50px 0px;
+  }
+  &-content {
+    overflow-x: auto;
+  }
   table {
+    overflow-x: auto;
     background: #fff;
     border: 1px solid #eaedff;
     text-align: center;
@@ -4203,10 +4214,206 @@ body {
         cursor: pointer;
         background-color: #84b77c;
         transition: all 0.3s ease;
+        min-width: 150px;
+        padding: 22px;
         &:hover {
           background-color: $cl1;
         }
       }
     }
+  }
+}
+//************
+//Checkout
+
+.checkout {
+  padding: 100px 15px;
+
+  .container {
+  }
+  &-form {
+    @include lg {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 30px;
+    }
+    h3 {
+      border-bottom: 1px solid #eaedff;
+      font-size: 26px;
+      margin: 0 0 20px;
+      padding-bottom: 10px;
+      width: 100%;
+      font-weight: 500;
+    }
+    h4 {
+      color: #6f7172;
+      margin: 0 0 5px;
+      font-size: 14px;
+      font-weight: 400;
+      span {
+        color: $cl1;
+      }
+    }
+    input {
+      background: #fff;
+      border: 1px solid #eaedff;
+      border-radius: 0;
+      height: 45px;
+      padding: 0 0 0 10px;
+      width: 100%;
+    }
+    .error {
+      width: 100%;
+      margin-top: 10px;
+      font-size: 12px;
+      color: #dc3545;
+      height: unset;
+      display: block;
+    }
+  }
+
+  &-list {
+    > div {
+      margin-bottom: 30px;
+    }
+  }
+
+  &-tworow {
+    @include lg {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 30px;
+    }
+  }
+  &-notes {
+    textarea {
+      border: 1px solid #eaedff;
+      height: 90px;
+      padding: 15px;
+      width: 100%;
+      font-size: 14px;
+      resize: vertical;
+      &:focus-visible {
+        outline: none !important;
+      }
+    }
+  }
+  &-order {
+    padding: 30px 40px 45px;
+    border: 3px solid #eaedff;
+    display: block;
+    width: 100%;
+    @include xs {
+      overflow-x: auto;
+      padding: 22px;
+    }
+    table {
+      width: 100%;
+      thead {
+        th {
+          border-top: none;
+          color: #6f7172;
+          font-weight: 400;
+          text-align: left;
+          vertical-align: middle;
+          white-space: nowrap;
+          width: 250px;
+          font-size: 14px;
+          padding: 15px 0;
+          border-bottom: 1px solid #eaedff;
+        }
+      }
+      tbody {
+        td {
+          border-bottom: 1px solid #eaedff;
+          border-right: none;
+          color: #6f7172;
+          font-size: 14px;
+          padding: 15px 0;
+          text-align: left;
+          input {
+            border: unset;
+            background: inherit;
+            padding: unset;
+            color: #6f7172;
+            font-size: 14px;
+            height: unset;
+            width: unset;
+            font-family: Rubik, sans-serif;
+            @include md {
+              max-width: 160px;
+            }
+
+            &.total {
+              color: #fe4536;
+              font-size: 18px;
+              font-weight: 500;
+            }
+          }
+          span {
+            font-weight: bolder;
+            display: flex;
+            input {
+              margin-left: 2px;
+              max-width: 30px;
+            }
+          }
+        }
+      }
+    }
+    .name-col {
+      @include md {
+        display: flex;
+      }
+    }
+  }
+  &-drop {
+    margin-top: 40px;
+    .css-1elwnq4-MuiPaper-root-MuiAccordion-root {
+      box-shadow: none;
+      margin-bottom: 20px;
+      background-color: #fff;
+      border: 1px solid #eaedff;
+      background-color: #fff;
+      // border-bottom: 2px solid #eaedff;
+      &:before {
+        display: none !important;
+      }
+    }
+    .css-o4b71y-MuiAccordionSummary-content.Mui-expanded {
+      border-bottom: 1px solid #eaedff;
+      padding-bottom: 5px;
+    }
+    .css-o4b71y-MuiAccordionSummary-content {
+      p {
+        font-size: 18px;
+        font-weight: 500;
+        font-family: Rubik, sans-serif;
+        border: none;
+        border-radius: 0;
+        color: #444;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 14px;
+        font-weight: 500;
+        padding: 3px 10px;
+        padding-bottom: 5px;
+        text-align: center;
+        text-transform: uppercase;
+      }
+    }
+    .css-15v22id-MuiAccordionDetails-root {
+      p {
+        color: #444;
+        font-size: 14px;
+        padding-left: 12px;
+      }
+    }
+  }
+  &-btn {
+    width: 100%;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 13px;
   }
 }

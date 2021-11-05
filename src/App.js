@@ -1,19 +1,20 @@
 import HomeLayout from './Layouts/HomeLayout'
 import { Switch, Route } from 'react-router-dom'
-
 import ShopLayout from './Layouts/ShopLayout'
 import ErrorComponent from './Component/ErrorComponent/ErrorComponent'
 import ProductLayout from './Layouts/ProductLayout'
 import BlogLayout from './Layouts/BlogLayout'
 import PageLayout from './Layouts/PageLayout'
 import ContactLayout from './Layouts/ContactLayout'
-import './App.css'
 import DetailLayout from './Layouts/DetailLayout'
 import BlogDetailLayout from './Layouts/BlogDetailLayout'
 import CartLayout from './Layouts/CartLayout'
 import LoginLayout from './Layouts/LoginLayout'
 import RegisterLayout from './Layouts/RegisterLayout'
 import WishListLayout from './Layouts/WishListLayout'
+import CompareLayout from './Layouts/CompareLayout'
+import './App.css'
+import CheckOutLayout from './Layouts/CheckOutLayout'
 
 function App() {
   return (
@@ -30,6 +31,8 @@ function App() {
         <Route path="/login" component={LoginLayout} exact></Route>
         <Route path="/register" component={RegisterLayout} exact></Route>
         <Route path="/wishlist" component={WishListLayout} exact></Route>
+        <Route path="/compare" component={CompareLayout} exact></Route>
+        <Route path="/checkout" component={CheckOutLayout} exact></Route>
         <Route
           path="/details/:productID"
           component={DetailLayout}

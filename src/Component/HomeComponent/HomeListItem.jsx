@@ -87,9 +87,9 @@ function HomeListItem(props) {
       setProducts(newArr)
     }
     getProducts()
-    return () => {
-      setProducts([])
-    }
+    // return () => {
+    //   setProducts([])
+    // }
   }, [sort])
   // const handleChange = (event, newValue) => {
   //   setValue(newValue)
