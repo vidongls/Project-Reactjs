@@ -897,6 +897,9 @@ $text1: #10111e;
   @include xxl {
     padding: 60px 90px;
   }
+  .slick-dots {
+    display: none;
+  }
 }
 .product {
   &-list {
@@ -1028,9 +1031,12 @@ $text1: #10111e;
     .product-img__fisrt {
       display: block !important;
     }
+    a {
+      height: 100%;
+    }
     img {
+      height: 100%;
       width: 100%;
-      // height: 100%;
       object-fit: cover;
       @include xxl {
         min-height: 440px;
@@ -1093,8 +1099,12 @@ $text1: #10111e;
     justify-content: center;
     transition: all 0.3s ease;
     width: calc(100% - 30px);
-    opacity: 0;
-    visibility: hidden;
+    // opacity: 0;
+    // visibility: hidden;
+    @include md {
+      opacity: 0;
+      visibility: hidden;
+    }
     &__item {
       background-color: #fff;
       height: 50px;
@@ -1350,7 +1360,7 @@ $text1: #10111e;
         top: auto;
         padding: 25px;
         bottom: 20px;
-        width: 300px;
+        width: 280px;
       }
       @include sm {
         left: 20px;
@@ -2109,6 +2119,15 @@ $text1: #10111e;
       grid-template-columns: repeat(2, 1fr);
     }
   }
+  .product-img {
+    height: 405px;
+    @include sm {
+      height: 510px;
+    }
+    @include md {
+      height: 405px;
+    }
+  }
 }
 .shop-list-fulldetail {
   p {
@@ -2196,33 +2215,35 @@ $text1: #10111e;
   align-items: center;
   flex-wrap: wrap;
   margin-bottom: 30px;
-  li {
+  button {
     background: transparent;
-    color: #9990b8;
     border: 2px solid #eaebec;
     height: 60px;
     width: 60px;
     line-height: 56px;
-    font-size: 16px;
-    font-weight: 500;
+    box-sizing: border-box;
     border-radius: 50%;
     text-align: center;
     cursor: pointer;
     margin: 0 5px;
     transition: all 0.3s ease;
+    font-size: 16px;
+    font-weight: 600;
+    color: #9990b8;
     &:hover {
       background: #fe4536;
-      color: #fff;
       border-color: #fe4536;
       box-shadow: 0 8px 16px 0 #fe45364d;
+      color: #fff;
     }
   }
-  &-item {
-    &.active {
+  .css-lqq3n7-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+    background: #fe4536;
+    color: #fff;
+    border-color: #fe4536;
+    box-shadow: 0 8px 16px 0 #fe45364d;
+    &:hover {
       background: #fe4536;
-      color: #fff;
-      border-color: #fe4536;
-      box-shadow: 0 8px 16px 0 #fe45364d;
     }
   }
 }
@@ -2546,6 +2567,11 @@ $text1: #10111e;
       @include lg {
         grid-gap: unset;
       }
+    }
+  }
+  .product-img {
+    img {
+      height: unset;
     }
   }
 }
@@ -3864,7 +3890,7 @@ $text1: #10111e;
 .side {
   &-toTop {
     position: fixed;
-    z-index: 2147483647;
+    z-index: 999;
     display: none;
     bottom: 50px;
     right: 50px;
@@ -4380,6 +4406,9 @@ $text1: #10111e;
         display: none !important;
       }
     }
+    .css-1elwnq4-MuiPaper-root-MuiAccordion-root.Mui-expanded:last-of-type {
+      margin-bottom: 20px;
+    }
     .css-o4b71y-MuiAccordionSummary-content.Mui-expanded {
       border-bottom: 1px solid #eaedff;
       padding-bottom: 5px;
@@ -4413,7 +4442,195 @@ $text1: #10111e;
   &-btn {
     width: 100%;
     cursor: pointer;
+    opacity: 0.65;
     font-weight: 500;
     font-size: 13px;
+    background-color: $cl1 !important;
+    border: none !important;
+    height: unset !important;
+    padding: 22px 50px !important;
+    &:hover {
+      background-color: #84b77c !important;
+    }
+  }
+}
+
+//**************
+// Modal
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 0 15px;
+  padding: 5rem 0;
+  &-wrapper {
+    width: 80%;
+    height: 100%;
+    @include lg {
+      height: unset;
+    }
+    @include xl {
+      width: 60%;
+    }
+  }
+  &-right {
+    @include md {
+      padding-left: 15px !important;
+    }
+  }
+  &-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    outline: 0;
+    height: 100%;
+    @include lg {
+      height: unset;
+    }
+    .close-btn {
+      position: absolute;
+      right: -16px;
+      top: -18px;
+      border-radius: 50%;
+      background-color: #fff;
+      height: 30px;
+      width: 30px;
+      z-index: 99;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #fe4536;
+      font-size: 16px;
+      font-weight: 900;
+      &:hover {
+        color: #84b77c;
+      }
+    }
+  }
+  &-body {
+    padding: 15px;
+    height: 100%;
+    overflow: auto;
+    @include lg {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      justify-items: stretch;
+      grid-gap: 20px;
+    }
+    .MuiTabs-flexContainer {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 10px;
+      margin-top: 5px;
+    }
+    .MuiTabPanel-root {
+      padding: 0;
+    }
+    .PrivateTabIndicator-root-1 {
+      display: none;
+    }
+    .css-cjctlb-MuiButtonBase-root-MuiTab-root {
+      padding: 0;
+    }
+  }
+  &-image {
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  &-text {
+    @include xs {
+      margin-top: 20px;
+    }
+    @include sm {
+      margin-top: 20px;
+    }
+    @include lg {
+      margin-top: unset;
+    }
+    &__category {
+      margin-bottom: 10px;
+      font-size: 14px;
+      text-transform: uppercase;
+      font-weight: 500;
+      letter-spacing: 2px;
+      color: #747691;
+      span {
+        cursor: pointer;
+        transition: all 0.3s ease;
+        &:hover {
+          color: $cl1;
+        }
+      }
+    }
+    &__title {
+      font-size: 23px;
+      margin-bottom: 15px;
+      color: #10111e;
+      font-weight: 500;
+      @include lg {
+        font-size: 30px;
+      }
+    }
+    &__price {
+      color: #fe4536;
+      font-weight: 300;
+      font-size: 20px;
+      margin-bottom: 15px;
+      @include lg {
+        font-size: 25px;
+      }
+    }
+  }
+  &-action {
+    &__text {
+      border-top: 1px solid #ffe7e5;
+      padding: 15px 0;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 26px;
+      color: #7e7e7e;
+    }
+    &__list {
+      padding: 15px 0px;
+      border-top: 1px solid #ffe7e5;
+      ul {
+        li {
+          margin-bottom: 10px;
+          font-size: 14px;
+          span {
+            font-weight: 500;
+            color: #232b37;
+            width: 120px;
+            display: inline-block;
+          }
+          .stock {
+            font-weight: 400;
+            color: $cl1;
+          }
+        }
+      }
+    }
+  }
+  .detail-action {
+    padding: 15px 0;
+    &__btn {
+      margin-top: 15px;
+    }
+    &__count {
+      @include xs {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
   }
 }

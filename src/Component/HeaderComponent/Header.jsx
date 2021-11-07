@@ -7,6 +7,7 @@ import { FaRegUser, FaSearch, FaShoppingCart, FaTimes } from 'react-icons/fa'
 import HeaderCart from './HeaderCart'
 import { useForm } from 'react-hook-form'
 import { searchData } from '../../Slice/ProductSearchSlice'
+import { useHistory } from 'react-router-dom'
 
 function Header(props) {
   const [showMenu, setShowMenu] = useState(false)
@@ -35,11 +36,15 @@ function Header(props) {
     let searchString = data.search
     const action = searchData(searchString)
     dispatch(action)
+    history.push(`/shop`)
   }
+
+  const history = useHistory()
 
   const handleOpenSearch = () => {
     setSearch(true)
   }
+
   const handleCloseSearch = (e) => {
     e.stopPropagation()
     setSearch(false)

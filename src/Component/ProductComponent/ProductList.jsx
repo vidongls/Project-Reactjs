@@ -101,7 +101,7 @@ function ProductList(props) {
                           alt=""
                           className="product-img__secondary"
                         ></img>
-                        <HomeItemAction />
+
                         <div className="product-tag">
                           <span className={item.new === true ? 'new' : null}>
                             {item.new === true ? 'new' : null}
@@ -111,6 +111,7 @@ function ProductList(props) {
                           </span>
                         </div>
                       </Link>
+                      <HomeItemAction id={item.id} />
                       <div className="product-content">
                         <div className="product-category">
                           <Link to={`/details/${item.id}`}>
@@ -199,7 +200,7 @@ function ProductList(props) {
                           consequuntur magni dolores eos qui ratione voluptatem
                           sequi nesciunt.
                         </p>
-                        <HomeItemAction />
+                        <HomeItemAction id={item.id} />
                       </div>
                     </div>
                   )

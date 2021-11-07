@@ -60,7 +60,7 @@ function HomeTopSeller(props) {
                   view details
                 </Link>
                 <div className="seller-shop">
-                  <Link to="/shop">
+                  <Link to="/shop" style={{ display: 'flex' }}>
                     <FaShoppingCart />
                   </Link>
                 </div>

@@ -31,6 +31,7 @@ function Details(props) {
       setProducts([])
     }
   }, [])
+
   return (
     <div className="detail">
       <div className="container">
@@ -71,7 +72,7 @@ function Details(props) {
           <div className="detail-content">
             <div className="detail-category">
               <Link to="/shop">Decor</Link>,
-              <Link to="/shop"> {products.brand}</Link>
+              <Link to="/shop">{products.brand}</Link>
             </div>
             <h2>{products.name}</h2>
             <div className="detail-price">
@@ -93,7 +94,7 @@ function Details(props) {
                 </li>
                 <li>
                   <span>Product Code: </span>
-                  {products.brand}
+                  f1
                 </li>
                 <li>
                   <span>Reward Points: </span>

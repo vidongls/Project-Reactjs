@@ -1,8 +1,42 @@
-import React from 'react'
+import { React, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { FaLayerGroup, FaPlus } from 'react-icons/fa'
 
 function HomeComingSoon(props) {
+  const [seconds, setSeconds] = useState(12)
+  const [minutes, setMinutes] = useState(1)
+  const [hours, setHours] = useState(16)
+  const [days, setDays] = useState(1)
+
+  function updateTime() {
+    if (minutes == 0 && seconds == 0 && hours == 0 && days == 0) {
+      //reset
+      setSeconds(0)
+      setMinutes(5)
+      setHours(16)
+      setDays(1)
+    } else {
+      if (seconds == 0) {
+        setMinutes((minutes) => minutes - 1)
+        if (minutes == 1) {
+          setHours((hours) => hours - 1)
+          setMinutes(59)
+        }
+        setSeconds(59)
+      } else {
+        setSeconds((seconds) => seconds - 1)
+      }
+    }
+  }
+
+  useEffect(() => {
+    const token = setTimeout(updateTime, 1000)
+
+    return () => {
+      clearTimeout(token)
+    }
+  })
+
   return (
     <div className="upcoming">
       <div className="upcoming-mark">
@@ -65,19 +99,19 @@ function HomeComingSoon(props) {
         </div>
         <div className="upcoming-time">
           <span>
-            <span className="time-count">0</span>
+            <span className="time-count">{days}</span>
             <p>Days</p>
           </span>
           <span>
-            <span className="time-count">0</span>
+            <span className="time-count">{hours}</span>
             <p>Hour</p>
           </span>
           <span>
-            <span className="time-count">00</span>
+            <span className="time-count">{minutes}</span>
             <p>Min</p>
           </span>
           <span>
-            <span className="time-count">00</span>
+            <span className="time-count">{seconds}</span>
             <p>Sec</p>
           </span>
         </div>

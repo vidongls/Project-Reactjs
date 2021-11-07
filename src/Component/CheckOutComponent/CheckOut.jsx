@@ -1,21 +1,65 @@
-import { React, useState } from 'react'
+import { React, useState, useRef } from 'react'
 import { useForm } from 'react-hook-form'
 import TextareaAutosize from '@mui/material/TextareaAutosize'
 import Accordion from '@mui/material/Accordion'
 import AccordionDetails from '@mui/material/AccordionDetails'
 import AccordionSummary from '@mui/material/AccordionSummary'
 import Typography from '@mui/material/Typography'
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as yup from 'yup'
+import { useSelector } from 'react-redux'
+import emailjs from 'emailjs-com'
+
+const schema = yup.object().shape({
+  email: yup
+    .string()
+    .required('Please provide your email')
+    .email('Email invalid!'),
+  country: yup.string().required('Please provide your country name'),
+  firstName: yup.string().required('Please provide your first name'),
+  lastName: yup.string().required('Please provide your last name'),
+  company: yup.string().required('Please provide your company name'),
+  address: yup.string().required('Please provide your address'),
+  city: yup.string().required('Please provide your city'),
+  phone: yup
+    .number()
+    .typeError('Phone number invalid')
+    .required('Please provide your phone'),
+})
 
 function CheckOut(props) {
   const [expanded, setExpanded] = useState(false)
+
+  const form = useRef()
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm()
-  const onSubmit = (data) => console.log(data)
+  } = useForm({
+    resolver: yupResolver(schema),
+  })
+
+  const cartItems = useSelector((state) => state.cart.cartItems)
+  const totalPrice = useSelector((state) => state.cart.totalPrice)
+
+  const onSubmit = (data) => {
+    emailjs
+      .sendForm(
+        'service_880ghrn',
+        'template_obi0loh',
+        form.current,
+        'user_rNUoMwO8qnHx8SPwGLETX'
+      )
+      .then(
+        (result) => {
+          console.log(result.text)
+        },
+        (error) => {
+          console.log(error.text)
+        }
+      )
+  }
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false)
@@ -23,7 +67,11 @@ function CheckOut(props) {
   return (
     <div className="checkout">
       <div className="container">
-        <form className="checkout-form" onSubmit={handleSubmit(onSubmit)}>
+        <form
+          className="checkout-form"
+          ref={form}
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <div className="checkout-billing">
             <h3>Billing Details</h3>
             <div className="checkout-list">
@@ -37,7 +85,7 @@ function CheckOut(props) {
                   name="country"
                 />
                 {errors.country && (
-                  <div className="error">Please provide your country name</div>
+                  <div className="error">{errors.country?.message}</div>
                 )}
               </div>
               <div className="checkout-tworow">
@@ -51,7 +99,7 @@ function CheckOut(props) {
                     name="firstName"
                   />
                   {errors.firstName && (
-                    <div className="error">Please provide your first name</div>
+                    <div className="error">{errors.firstName?.message}</div>
                   )}
                 </div>
                 <div className="lastname">
@@ -64,7 +112,7 @@ function CheckOut(props) {
                     name="lastName"
                   />
                   {errors.lastName && (
-                    <div className="error">Please provide your last name</div>
+                    <div className="error">{errors.lastName?.message}</div>
                   )}
                 </div>
               </div>
@@ -78,7 +126,7 @@ function CheckOut(props) {
                   name="company"
                 />
                 {errors.company && (
-                  <div className="error">Please provide your company name</div>
+                  <div className="error">{errors.company?.message}</div>
                 )}
               </div>
               <div className="checkout-address">
@@ -91,7 +139,7 @@ function CheckOut(props) {
                   name="address"
                 />
                 {errors.address && (
-                  <div className="error">Please provide your address</div>
+                  <div className="error">{errors.address?.message}</div>
                 )}
               </div>
               <div className="checkout-city">
@@ -104,7 +152,7 @@ function CheckOut(props) {
                   name="city"
                 />
                 {errors.city && (
-                  <div className="error">Please provide your city</div>
+                  <div className="error">{errors.city?.message}</div>
                 )}
               </div>
               <div className="checkout-tworow">
@@ -118,7 +166,7 @@ function CheckOut(props) {
                     name="email"
                   />
                   {errors.email && (
-                    <div className="error">Please provide your email</div>
+                    <div className="error">{errors.email?.message}</div>
                   )}
                 </div>
                 <div>
@@ -131,7 +179,7 @@ function CheckOut(props) {
                     name="phone"
                   />
                   {errors.phone && (
-                    <div className="error">Please provide your phone</div>
+                    <div className="error">{errors.phone?.message}</div>
                   )}
                 </div>
               </div>
@@ -159,36 +207,43 @@ function CheckOut(props) {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td className="name-col">
-                      <input
-                        type="text"
-                        readOnly
-                        value="Minimal Troma Furniture"
-                        name="productName"
-                      />
-                      <span>
-                        x
-                        <input
-                          type="text"
-                          readOnly
-                          value="4"
-                          name="productQuantity"
-                        />
-                      </span>
-                    </td>
-                    <td>
-                      <input
-                        type="text"
-                        readOnly
-                        value="$190.00"
-                        name="productPrice"
-                      />
-                    </td>
-                  </tr>
+                  {cartItems.length !== 0
+                    ? cartItems.map((item, index) => {
+                        return (
+                          <tr key={index}>
+                            <td className="name-col">
+                              <input
+                                type="text"
+                                readOnly
+                                value={item.product.name}
+                                name="productName"
+                              />
+                              <span>
+                                x
+                                <input
+                                  type="text"
+                                  readOnly
+                                  value={item.quantity}
+                                  name="productQuantity"
+                                />
+                              </span>
+                            </td>
+                            <td>
+                              <input
+                                type="text"
+                                readOnly
+                                value={`$ ${item.product.mainPrice}.00`}
+                                name="productPrice"
+                              />
+                            </td>
+                          </tr>
+                        )
+                      })
+                    : null}
+
                   <tr>
                     <td>Cart Subtotal</td>
-                    <td>$850.00</td>
+                    <td>${totalPrice}.00</td>
                   </tr>
                   <tr>
                     <td>Shipping</td>
@@ -201,7 +256,7 @@ function CheckOut(props) {
                         className="total"
                         type="text"
                         readOnly
-                        value=" $850.00 "
+                        value={`$${totalPrice}.00`}
                         name="totalPrice"
                       />
                     </td>
@@ -254,9 +309,11 @@ function CheckOut(props) {
                   </AccordionDetails>
                 </Accordion>
               </div>
-              <button className="btn checkout-btn" type="submit">
-                Place order
-              </button>
+              <input
+                className="btn checkout-btn"
+                value="Place order"
+                type="submit"
+              />
             </div>
           </div>
         </form>

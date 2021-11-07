@@ -27,12 +27,8 @@ function WhishList(props) {
   }
   const handleAdd = (id) => {
     let product = wishListItems.filter((item) => item.product.id === id)
-    const itemData = {
-      product: product,
-      id: id,
-      quantity: 1,
-    }
-    const actionAddToCart = addToCart(itemData)
+
+    const actionAddToCart = addToCart(product[0])
     dispatch(actionAddToCart)
     const actionTotalPrice = setTotalPrice()
     dispatch(actionTotalPrice)
