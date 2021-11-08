@@ -526,6 +526,9 @@ $text1: #10111e;
     @include md {
       top: 100px;
     }
+    @include lg {
+      display: none;
+    }
     padding: 0 30px;
     a {
       text-transform: uppercase;

@@ -1103,6 +1103,12 @@ select {
   }
 }
 
+@media (min-width: 992px) {
+  .menu-mobile__list {
+    display: none;
+  }
+}
+
 .menu-mobile__list a {
   text-transform: uppercase;
 }
