@@ -42,7 +42,6 @@ function ShopContainer(props) {
                   label={<FaListUl />}
                   value="1"
                 />
-
                 <Tab
                   className="shop-tab__item"
                   label={<FaThList />}

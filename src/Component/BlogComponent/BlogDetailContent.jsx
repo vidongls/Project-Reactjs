@@ -25,7 +25,7 @@ function BlogDetailContent(props) {
     const getPost = async () => {
       const postItems = await PostApi.getOne(postID)
       let data = postItems.data
-      console.log(data)
+      // console.log(data)
       setPost(data)
     }
     getPost()

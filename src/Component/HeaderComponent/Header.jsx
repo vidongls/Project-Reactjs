@@ -9,6 +9,8 @@ import { useForm } from 'react-hook-form'
 import { searchData } from '../../Slice/ProductSearchSlice'
 import { useHistory } from 'react-router-dom'
 
+import HeaderMenuMoblie from './HeaderMenuMoblie'
+
 function Header(props) {
   const [showMenu, setShowMenu] = useState(false)
   const [showLogin, setShowLogin] = useState(true)
@@ -260,6 +262,7 @@ function Header(props) {
             <span></span>
           </div>
         </div>
+        {showMenu ? <HeaderMenuMoblie /> : null}
       </div>
     </>
   )

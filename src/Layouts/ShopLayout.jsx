@@ -12,7 +12,6 @@ function ShopLayout(props) {
       <Header />
       <HeaderDetail check={true} title="Our Shop" curpage="Shop" />
       <ShopContainer />
-
       <Footer checkimg={true} />
     </>
   )

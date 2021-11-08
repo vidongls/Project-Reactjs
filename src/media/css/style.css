@@ -406,6 +406,7 @@ select {
 }
 
 .header {
+  position: relative;
   font-family: 'Rubik', sans-serif;
   width: 100%;
   background-color: #ffffff;
@@ -1081,6 +1082,174 @@ select {
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
+}
+
+.menu-mobile__list {
+  position: absolute;
+  width: 100%;
+  max-height: 1000px;
+  margin: 0 auto;
+  background-color: transparent;
+  z-index: 8;
+  top: 73px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  padding: 0 30px;
+}
+
+@media (min-width: 768px) {
+  .menu-mobile__list {
+    top: 100px;
+  }
+}
+
+.menu-mobile__list a {
+  text-transform: uppercase;
+}
+
+.menu-mobile__list > ul {
+  width: 100%;
+  color: #fff;
+  background-color: #0c1923;
+}
+
+.menu-mobile__list > ul p {
+  color: #fff;
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 10px 5%;
+  text-align: left;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 90%;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.menu-mobile__list > ul p a {
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.menu-mobile__list > ul svg {
+  color: #fff;
+}
+
+.menu-mobile__list > ul .alone-li {
+  padding: 5px 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  width: 100%;
+}
+
+.menu-mobile__list > ul .alone-li a {
+  color: #fff;
+  display: block;
+  margin: 0;
+  padding: 10px 5%;
+  text-align: left;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 90%;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.menu-mobile__list > ul .alone-li a a {
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.menu-mobile__list > ul li .css-15v22id-MuiAccordionDetails-root > ul > li {
+  padding: 5px 0px;
+}
+
+.menu-mobile__list > ul li .css-15v22id-MuiAccordionDetails-root > ul > li > a {
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  opacity: 0.75;
+  padding: 10px 18%;
+  text-shadow: none;
+  visibility: visible;
+  color: #fff;
+  display: block;
+  font-size: 12px;
+}
+
+@media (min-width: 768px) {
+  .menu-mobile__list > ul li .css-15v22id-MuiAccordionDetails-root > ul > li > a {
+    padding: 10px 13%;
+  }
+}
+
+.menu-mobile__list > ul li .css-15v22id-MuiAccordionDetails-root > ul > li:hover a {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.menu-mobile__list .css-1elwnq4-MuiPaper-root-MuiAccordion-root {
+  background-color: #0c1923;
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.menu-mobile__list .css-1elwnq4-MuiPaper-root-MuiAccordion-root:hover {
+  color: #f00000;
+}
+
+.menu-mobile__list .css-o4b71y-MuiAccordionSummary-content.Mui-expanded {
+  margin: unset;
+}
+
+.menu-mobile__list .css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root.Mui-expanded {
+  min-height: unset;
+}
+
+.menu-mobile__list .css-o4b71y-MuiAccordionSummary-content {
+  margin: 0;
+}
+
+.menu-mobile__list .css-15v22id-MuiAccordionDetails-root > ul > li {
+  padding: 5px 0px;
+}
+
+.menu-mobile__list .css-15v22id-MuiAccordionDetails-root > ul > li > a {
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  opacity: 0.75;
+  padding: 10px 10%;
+  text-shadow: none;
+  visibility: visible;
+  color: #fff;
+  display: block;
+  font-size: 12px;
+}
+
+.menu-mobile__list .child-ele {
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.menu-mobile__list .child-ele p {
+  opacity: 0.75;
+  padding: 10px 10%;
+  text-shadow: none;
+  visibility: visible;
+  color: #fff;
+  display: block;
+  font-size: 12px;
+}
+
+.menu-mobile__list .child-ele ul > li {
+  padding: 5px 0px;
+}
+
+.menu-mobile__list .child-ele ul > li > a {
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  opacity: 0.75;
+  padding: 1em 15%;
+  text-shadow: none;
+  visibility: visible;
+  color: #fff;
+  display: block;
+  font-size: 12px;
+  text-transform: uppercase;
 }
 
 .header-detail {
@@ -3804,6 +3973,7 @@ select {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin-bottom: 10px;
 }
 
 .sidebar-product__image {
@@ -3967,8 +4137,14 @@ select {
   }
 }
 
-.compro-list .product-img img {
-  height: unset;
+.compro-list .product-img {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .compro-list .product-img {
+    height: 405px;
+  }
 }
 
 .detail {
