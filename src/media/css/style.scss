@@ -2265,12 +2265,12 @@ $text1: #10111e;
       text-align: center;
       transition: all 0.3s ease;
       margin-left: 20px;
-    }
-    .css-cjctlb-MuiButtonBase-root-MuiTab-root.Mui-selected {
-      color: #ffffff !important;
-      background-color: $cl1;
-      transition: all 0.3s ease;
-      // box-shadow: 0 8px 16px 0 #fe45364d;
+      &.Mui-selected {
+        color: #ffffff !important;
+        background-color: $cl1;
+        transition: all 0.3s ease;
+        // box-shadow: 0 8px 16px 0 #fe45364d;
+      }
     }
   }
   &-content {

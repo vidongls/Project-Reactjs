@@ -18,6 +18,8 @@ function ShopSearch(props) {
   const handleRefresh = () => {
     const action = refreshList()
     dispatch(action)
+    const actionSearch = searchData('')
+    dispatch(actionSearch)
   }
   return (
     <div className="sidebar-search">

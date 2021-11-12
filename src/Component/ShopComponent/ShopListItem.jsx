@@ -6,6 +6,7 @@ import HomeItemAction from '../HomeComponent/HomeItemAction'
 import Pagination from '../Pagination/Pagination'
 import { useSelector, useDispatch } from 'react-redux'
 import { refreshList } from '../../Slice/ProductSortSlice'
+import { searchData } from '../../Slice/ProductSearchSlice'
 
 function ShopListItem(props) {
   const [products, setProducts] = useState([])

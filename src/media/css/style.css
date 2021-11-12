@@ -3399,7 +3399,7 @@ select {
   margin-left: 20px;
 }
 
-.shop-tab .css-cjctlb-MuiButtonBase-root-MuiTab-root.Mui-selected {
+.shop-tab button.Mui-selected {
   color: #ffffff !important;
   background-color: #fe4536;
   -webkit-transition: all 0.3s ease;
