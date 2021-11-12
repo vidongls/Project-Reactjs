@@ -3841,10 +3841,12 @@ select {
   border-bottom: 2px dashed #ede8ff;
 }
 
+.sidebar-drag .css-exkjcx,
 .sidebar-drag .css-187mznn-MuiSlider-root {
   color: #84b77c;
 }
 
+.sidebar-drag .css-exkjcx span,
 .sidebar-drag .css-187mznn-MuiSlider-root span {
   color: inherit;
 }
