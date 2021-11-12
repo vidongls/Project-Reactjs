@@ -9,16 +9,16 @@ function HomeComingSoon(props) {
   const [days, setDays] = useState(1)
 
   function updateTime() {
-    if (minutes == 0 && seconds == 0 && hours == 0 && days == 0) {
+    if (minutes === 0 && seconds === 0 && hours === 0 && days === 0) {
       //reset
       setSeconds(0)
       setMinutes(5)
       setHours(16)
       setDays(1)
     } else {
-      if (seconds == 0) {
+      if (seconds === 0) {
         setMinutes((minutes) => minutes - 1)
-        if (minutes == 1) {
+        if (minutes === 1) {
           setHours((hours) => hours - 1)
           setMinutes(59)
         }

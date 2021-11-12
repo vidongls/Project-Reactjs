@@ -8,7 +8,6 @@ import HeaderCart from './HeaderCart'
 import { useForm } from 'react-hook-form'
 import { searchData } from '../../Slice/ProductSearchSlice'
 import { useHistory } from 'react-router-dom'
-
 import HeaderMenuMoblie from './HeaderMenuMoblie'
 
 function Header(props) {
@@ -17,22 +16,30 @@ function Header(props) {
   const [scroll, setScroll] = useState(false)
   const [search, setSearch] = useState(false)
   const dispatch = useDispatch()
+  const history = useHistory()
+  const { register, handleSubmit } = useForm()
+  let user = useSelector((state) => state.login.currentUser[0])
 
   useEffect(() => {
     const handleScroll = () => {
       setScroll(window.scrollY > 300)
     }
     window.addEventListener('scroll', handleScroll)
+
+    const checkLogin = () => {
+      if (user !== undefined) {
+        setShowLogin(false)
+      }
+    }
+    checkLogin()
+
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
-
-  let user = useSelector((state) => state.login.currentUser)
 
   const handleMenu = () => {
     setShowMenu(!showMenu)
   }
 
-  const { register, handleSubmit } = useForm()
   const onSubmit = (data) => {
     // console.log(data)
     let searchString = data.search
@@ -40,8 +47,6 @@ function Header(props) {
     dispatch(action)
     history.push(`/shop`)
   }
-
-  const history = useHistory()
 
   const handleOpenSearch = () => {
     setSearch(true)
@@ -248,7 +253,12 @@ function Header(props) {
               </div>
             )}
             <li className="btn-user">
-              <FaRegUser />
+              <Link
+                style={{ color: 'inherit' }}
+                to={showLogin ? '/login' : '/profile'}
+              >
+                <FaRegUser />
+              </Link>
             </li>
             <li className="btn-cart">
               <FaShoppingCart />

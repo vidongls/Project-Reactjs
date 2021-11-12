@@ -1,20 +1,26 @@
 import { React, useState } from 'react'
 import Checkbox from '@mui/material/Checkbox'
 import FormControlLabel from '@mui/material/FormControlLabel'
+import { useDispatch } from 'react-redux'
+import { sortColor } from '../../Slice/ProductSortSlice'
 
 function ShopColorFilter(props) {
   let arrColor = []
 
-  const [products, setProducts] = useState([])
+  const dispatch = useDispatch()
 
   const handleValue = (e) => {
-    if (arrColor.indexOf(e.target.value) !== -1) {
+    if (e.target.checked) {
+      arrColor.push(e.target.value)
+    }
+
+    if (!e.target.checked) {
       arrColor.splice(arrColor.indexOf(e.target.value), 1)
     }
 
-    arrColor.push(e.target.value)
-
-    console.log(arrColor)
+    const actions = sortColor(arrColor)
+    dispatch(actions)
+    // console.log(arrColor)
   }
   return (
     <div className="sidebar-color">
@@ -22,42 +28,42 @@ function ShopColorFilter(props) {
       <ul className="sidebar-color__list">
         <FormControlLabel
           className="black"
-          value="Black"
+          value="black"
           control={<Checkbox />}
           onChange={handleValue}
           label="Black"
         />
         <FormControlLabel
           className="green"
-          value="Green"
+          value="green"
           control={<Checkbox />}
           onChange={handleValue}
           label="Green"
-        />{' '}
+        />
         <FormControlLabel
           className="blue"
-          value="Blue"
+          value="blue"
           control={<Checkbox />}
           onChange={handleValue}
           label="Blue"
-        />{' '}
+        />
         <FormControlLabel
           className="white"
-          value="White"
+          value="white"
           control={<Checkbox />}
           onChange={handleValue}
           label="White"
-        />{' '}
+        />
         <FormControlLabel
           className="red"
-          value="Red"
+          value="red"
           control={<Checkbox />}
           onChange={handleValue}
           label="Red"
-        />{' '}
+        />
         <FormControlLabel
           className="gray"
-          value="Gray"
+          value="gray"
           control={<Checkbox />}
           onChange={handleValue}
           label="Gray"

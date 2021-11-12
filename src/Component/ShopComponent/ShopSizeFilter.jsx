@@ -2,12 +2,14 @@ import { React, useState, useEffect } from 'react'
 import Checkbox from '@mui/material/Checkbox'
 import FormControlLabel from '@mui/material/FormControlLabel'
 import ProductApi from '../../Api/ProductApi'
+import { useDispatch } from 'react-redux'
+import { sortSize } from '../../Slice/ProductSortSlice'
 
 function ShopSizeFilter(props) {
   const [checked, setChecked] = useState(true)
-  let arrSize = []
-
+  const dispatch = useDispatch()
   const [products, setProducts] = useState([])
+  let arrSize = []
 
   useEffect(() => {
     const getProducts = async () => {
@@ -28,12 +30,15 @@ function ShopSizeFilter(props) {
   ]
   // console.log()
   const handleValue = (e) => {
-    if (arrSize.indexOf(e.target.value) !== -1) {
-      arrSize.splice(arrSize.indexOf(e.target.value), 1)
+    if (e.target.checked) {
+      arrSize.push(e.target.value)
     }
 
-    arrSize.push(e.target.value)
-
+    if (!e.target.checked) {
+      arrSize.splice(arrSize.indexOf(e.target.value), 1)
+    }
+    const actions = sortSize(arrSize)
+    dispatch(actions)
     // console.log(arrSize)
   }
 

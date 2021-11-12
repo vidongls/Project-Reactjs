@@ -15,7 +15,6 @@ import Tab from '@mui/material/Tab'
 import TabList from '@material-ui/lab/TabList'
 import TabPanel from '@material-ui/lab/TabPanel'
 import TabContext from '@material-ui/lab/TabContext'
-import { Link } from 'react-router-dom'
 import DetailAction from '../DetailComponent/DetailAction'
 
 function HomeItemAction(props) {

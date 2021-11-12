@@ -9,6 +9,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import { useSelector } from 'react-redux'
 import emailjs from 'emailjs-com'
+import { useHistory } from 'react-router-dom'
 
 const schema = yup.object().shape({
   email: yup
@@ -42,23 +43,29 @@ function CheckOut(props) {
 
   const cartItems = useSelector((state) => state.cart.cartItems)
   const totalPrice = useSelector((state) => state.cart.totalPrice)
+  let user = useSelector((state) => state.login.currentUser[0])
+  const history = useHistory()
 
   const onSubmit = (data) => {
-    emailjs
-      .sendForm(
-        'service_880ghrn',
-        'template_obi0loh',
-        form.current,
-        'user_rNUoMwO8qnHx8SPwGLETX'
-      )
-      .then(
-        (result) => {
-          console.log(result.text)
-        },
-        (error) => {
-          console.log(error.text)
-        }
-      )
+    if (user !== undefined) {
+      history.push('/login')
+    } else {
+      emailjs
+        .sendForm(
+          'service_880ghrn',
+          'template_obi0loh',
+          form.current,
+          'user_rNUoMwO8qnHx8SPwGLETX'
+        )
+        .then(
+          (result) => {
+            console.log(result.text)
+          },
+          (error) => {
+            console.log(error.text)
+          }
+        )
+    }
   }
 
   const handleChange = (panel) => (event, isExpanded) => {

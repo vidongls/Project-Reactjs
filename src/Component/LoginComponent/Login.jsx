@@ -5,9 +5,10 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import { LoginAction } from '../../Slice/LoginSlice'
 import { unwrapResult } from '@reduxjs/toolkit'
+import { FaArrowLeft } from 'react-icons/fa'
 import { useDispatch } from 'react-redux'
 import { useSnackbar } from 'notistack'
-// import Grow from '@material-ui/core/Grow'
+import { useHistory } from 'react-router-dom'
 
 const schema = yup.object().shape({
   password: yup.string().required('Vui lòng nhập mật khẩu'),
@@ -22,8 +23,10 @@ function Login(props) {
   } = useForm({
     resolver: yupResolver(schema),
   })
+
   const { enqueueSnackbar } = useSnackbar()
   const dispatch = useDispatch()
+  const history = useHistory()
 
   const onSubmit = async (data) => {
     const userData = {
@@ -42,8 +45,8 @@ function Login(props) {
         },
         autoHideDuration: 3000,
         variant: 'success',
-        // TransitionComponent: Grow,
       })
+      history.push(`/home`)
     } else {
       enqueueSnackbar('Đăng nhập thất bại', {
         anchorOrigin: {
@@ -52,7 +55,6 @@ function Login(props) {
         },
         autoHideDuration: 3000,
         variant: 'error',
-        // TransitionComponent: Grow,
       })
     }
   }
@@ -101,6 +103,9 @@ function Login(props) {
           </div>
           <Link to="/register" className="login-btnregis btn">
             Register Now
+          </Link>
+          <Link to="/home" className="back-home">
+            <FaArrowLeft /> Back
           </Link>
         </div>
       </div>

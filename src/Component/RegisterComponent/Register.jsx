@@ -7,7 +7,7 @@ import * as yup from 'yup'
 import { RegisterAction } from '../../Slice/RegisterSlice'
 import { unwrapResult } from '@reduxjs/toolkit'
 import { useSnackbar } from 'notistack'
-// import Grow from '@material-ui/core/Grow'
+import { useHistory } from 'react-router-dom'
 
 const schema = yup.object().shape({
   email: yup
@@ -39,8 +39,11 @@ function Register(props) {
   } = useForm({
     resolver: yupResolver(schema),
   })
+
   const { enqueueSnackbar } = useSnackbar()
   const dispatch = useDispatch()
+
+  const history = useHistory()
 
   const onSubmit = async (data) => {
     let userDate = {
@@ -63,6 +66,7 @@ function Register(props) {
         variant: 'success',
         // TransitionComponent: Grow,
       })
+      history.push(`/login`)
     } catch (error) {
       enqueueSnackbar('Đăng ký thất bại', {
         anchorOrigin: {
