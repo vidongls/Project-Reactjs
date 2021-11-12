@@ -17,7 +17,7 @@ import './App.css'
 import CheckOutLayout from './Layouts/CheckOutLayout'
 import ProfileLayout from './Layouts/ProfileLayout'
 import React, { useState, useEffect } from 'react'
-
+import './media/css/style.css'
 function App() {
   const [show, setShow] = useState(true)
 

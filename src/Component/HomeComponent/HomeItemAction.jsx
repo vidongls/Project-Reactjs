@@ -86,7 +86,6 @@ function HomeItemAction(props) {
   }
 
   const handleOpen = () => {
-    console.log(id)
     setOpen(true)
   }
 

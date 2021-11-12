@@ -1833,7 +1833,7 @@ select {
 }
 
 .wrap-proheader .slick-dots {
-  display: none;
+  display: none !important;
 }
 
 .product-list {

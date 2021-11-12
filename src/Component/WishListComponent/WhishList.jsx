@@ -27,7 +27,6 @@ function WhishList(props) {
   }
   const handleAdd = (id) => {
     let product = wishListItems.filter((item) => item.product.id === id)
-
     const actionAddToCart = addToCart(product[0])
     dispatch(actionAddToCart)
     const actionTotalPrice = setTotalPrice()
@@ -79,7 +78,7 @@ function WhishList(props) {
                           <div
                             className="btn btn-add"
                             onClick={() => {
-                              handleAdd(item.id)
+                              handleAdd(item.product.id)
                             }}
                           >
                             add to cart
@@ -91,7 +90,7 @@ function WhishList(props) {
                         <td>
                           <div
                             className="cart-remove"
-                            onClick={() => handleDelete(item.id)}
+                            onClick={() => handleDelete(item.product.id)}
                           >
                             <FaRegTrashAlt />
                           </div>

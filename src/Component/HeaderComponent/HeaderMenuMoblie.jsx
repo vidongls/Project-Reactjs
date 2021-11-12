@@ -8,54 +8,21 @@ import { Link } from 'react-router-dom'
 
 function HeaderMenuMoblie(props) {
   const [expanded, setExpanded] = useState(false)
-  const [expanded1, setExpanded1] = useState(false)
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false)
   }
 
-  const handleChangeChild1 = (panel) => (event, isExpanded) => {
-    setExpanded1(isExpanded ? panel : false)
-  }
   return (
     <>
       <div className="menu-mobile__list">
         <ul>
-          <li>
-            <Accordion
-              expanded={expanded === 'panel1'}
-              onChange={handleChange('panel1')}
-            >
-              <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                <Typography>
-                  <Link className="text-title" to="/home">
-                    Home
-                  </Link>
-                </Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <ul>
-                  <li>
-                    <Link to="/">Home Style 1</Link>
-                  </li>
-                  <li>
-                    <Link to="/">Home Style 2</Link>
-                  </li>
-                  <li>
-                    <Link to="/">Home Style 3</Link>
-                  </li>
-                  <li>
-                    <Link to="/">Home Style 4</Link>
-                  </li>
-                  <li>
-                    <Link to="/">Home Style 5</Link>
-                  </li>
-                </ul>
-              </AccordionDetails>
-            </Accordion>
+          <li className="alone-li">
+            <Link to="/home">home</Link>
           </li>
-          <li>
-            <Accordion
+          <li className="alone-li">
+            <Link to="/shop">shop</Link>
+            {/* <Accordion
               expanded={expanded === 'panel2'}
               onChange={handleChange('panel2')}
             >
@@ -152,48 +119,15 @@ function HeaderMenuMoblie(props) {
                   </AccordionDetails>
                 </Accordion>
               </AccordionDetails>
-            </Accordion>
+            </Accordion> */}
           </li>
           <li className="alone-li">
             <Link to="/products">Products</Link>
           </li>
-
-          <li>
-            <Accordion
-              expanded={expanded === 'panel3'}
-              onChange={handleChange('panel3')}
-            >
-              <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                <Typography>
-                  <Link className="text-title" to="/blog">
-                    blog
-                  </Link>
-                </Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <ul>
-                  <li>
-                    <Link to="/blog">Blog 2 Column</Link>
-                  </li>
-                  <li>
-                    <Link to="/blog">Blog 2 Col Masonry</Link>
-                  </li>
-                  <li>
-                    <Link to="/blog">Blog 3 Column</Link>
-                  </li>
-                  <li>
-                    <Link to="/blog">Blog 3 Col Masonry</Link>
-                  </li>
-                  <li>
-                    <Link to="/blog">Blog Details</Link>
-                  </li>
-                  <li>
-                    <Link to="/blog">Blog Details Video</Link>
-                  </li>
-                </ul>
-              </AccordionDetails>
-            </Accordion>
+          <li className="alone-li">
+            <Link to="/blog"> blog</Link>
           </li>
+
           <li>
             <Accordion
               expanded={expanded === 'panel4'}

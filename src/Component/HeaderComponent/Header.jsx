@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from 'react'
-import '../../media/css/style.css'
+// import '../../media/css/style.css'
 import logo from '../../media/img/logo.png'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, NavLink } from 'react-router-dom'
@@ -15,6 +15,7 @@ function Header(props) {
   const [showLogin, setShowLogin] = useState(true)
   const [scroll, setScroll] = useState(false)
   const [search, setSearch] = useState(false)
+  const [showCart, setShowCart] = useState(false)
   const dispatch = useDispatch()
   const history = useHistory()
   const { register, handleSubmit } = useForm()
@@ -56,6 +57,7 @@ function Header(props) {
     e.stopPropagation()
     setSearch(false)
   }
+
   return (
     <>
       <div className={scroll ? 'header active' : 'header'}>
@@ -74,7 +76,7 @@ function Header(props) {
           <li>
             <NavLink to={'/home'}>Home</NavLink>
 
-            <div className="header-dropdown">
+            {/* <div className="header-dropdown">
               <ul>
                 <li>
                   <Link to="/">Home Style 1</Link>
@@ -92,11 +94,11 @@ function Header(props) {
                   <Link to="/">Home Style 5</Link>
                 </li>
               </ul>
-            </div>
+            </div> */}
           </li>
           <li>
             <NavLink to={'/shop'}>Shop</NavLink>
-            <ul className="header-dropdown level-1">
+            {/* <ul className="header-dropdown level-1">
               <ul>
                 <h3>Category View</h3>
                 <li>
@@ -151,14 +153,14 @@ function Header(props) {
                   <Link to="/compare">Compare</Link>
                 </li>
               </ul>
-            </ul>
+            </ul> */}
           </li>
           <li>
             <NavLink to={'/products'}>Products</NavLink>
           </li>
           <li>
             <NavLink to={'/blog'}>Blog</NavLink>
-            <div className="header-dropdown">
+            {/* <div className="header-dropdown">
               <ul>
                 <li>
                   <Link to="/">Blog 2 Column</Link>
@@ -179,15 +181,15 @@ function Header(props) {
                   <Link to="/">Blog Details Video</Link>
                 </li>
               </ul>
-            </div>
+            </div> */}
           </li>
           <li>
             <NavLink to={'#'}>Pages</NavLink>
             <div className="header-dropdown">
               <ul>
-                <li>
+                {/* <li>
                   <Link to="/about">About Us</Link>
-                </li>
+                </li> */}
                 <li>
                   <Link to="/contact">Contact Us</Link>
                 </li>
