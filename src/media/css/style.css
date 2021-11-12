@@ -1566,7 +1566,7 @@ select {
 
 @media (max-width: 576px) {
   .slider-content__left h2 {
-    font-size: 60px;
+    font-size: 40px;
     font-weight: 700;
   }
 }
