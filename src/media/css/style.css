@@ -357,6 +357,7 @@ select {
 
 * {
   font-family: Rubik, sans-serif;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 
 .container {
@@ -1103,7 +1104,7 @@ select {
   max-height: 1000px;
   margin: 0 auto;
   background-color: transparent;
-  z-index: 8;
+  z-index: 99;
   top: 73px;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
@@ -1295,27 +1296,30 @@ select {
   color: #abadc5;
 }
 
-.slider:hover .slick-prev,
-.slider:hover .slick-next {
-  visibility: visible;
-  opacity: 1;
+@media (min-width: 576px) {
+  .slider:hover .slick-prev,
+  .slider:hover .slick-next {
+    visibility: visible;
+    opacity: 1;
+  }
+  .slider:hover .slick-prev {
+    left: 50px;
+  }
 }
 
-.slider:hover .slick-prev {
-  left: 50px;
-}
-
-@media (max-width: 576px) {
+@media (min-width: 576px) and (max-width: 576px) {
   .slider:hover .slick-prev {
     left: 10px;
   }
 }
 
-.slider:hover .slick-next {
-  right: 50px;
+@media (min-width: 576px) {
+  .slider:hover .slick-next {
+    right: 50px;
+  }
 }
 
-@media (max-width: 576px) {
+@media (min-width: 576px) and (max-width: 576px) {
   .slider:hover .slick-next {
     right: 10px;
   }
@@ -1334,6 +1338,13 @@ select {
   opacity: 0;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
+}
+
+@media (max-width: 576px) {
+  .slider .slick-prev,
+  .slider .slick-next {
+    display: none;
+  }
 }
 
 .slider .slick-prev:hover,
@@ -2451,9 +2462,23 @@ select {
   background-color: #84b77c;
 }
 
+@media (max-width: 576px) {
+  .seller-right .text-right .seller-btn .seller-shop {
+    display: none;
+  }
+}
+
 .seller-right .text-right .seller-btn .btn-viewdetail {
   background-color: #84b77c;
   padding: 23px 30px;
+}
+
+@media (max-width: 576px) {
+  .seller-right .text-right .seller-btn .btn-viewdetail {
+    padding: 20px 30px;
+    line-height: unset;
+    white-space: nowrap;
+  }
 }
 
 .seller-right img {
@@ -2720,12 +2745,27 @@ select {
           box-shadow: 0 16px 32px 0 #e0e2ff4d;
 }
 
+@media (max-width: 576px) {
+  .upcoming-time > span {
+    height: 70px;
+    padding: 0;
+    width: 70px;
+  }
+}
+
 .upcoming-time > span .time-count {
   font-size: 30px;
   color: #10111e;
   line-height: 1;
   display: block;
   margin-bottom: 10px;
+}
+
+@media (max-width: 576px) {
+  .upcoming-time > span .time-count {
+    margin-top: 20px;
+    font-size: 16px;
+  }
 }
 
 .upcoming-time > span p {
@@ -3604,6 +3644,15 @@ select {
   font-size: 16px;
   font-weight: 600;
   color: #9990b8;
+}
+
+@media (max-width: 576px) {
+  .pagination button {
+    width: 50px;
+    font-size: 14px;
+    line-height: 40px;
+    height: 50px;
+  }
 }
 
 .pagination button:hover {
@@ -5745,7 +5794,7 @@ select {
 
 .side-toTop {
   position: fixed;
-  z-index: 999;
+  z-index: 98;
   display: none;
   bottom: 50px;
   right: 50px;
@@ -5760,6 +5809,13 @@ select {
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   cursor: pointer;
+}
+
+@media (max-width: 576px) {
+  .side-toTop {
+    bottom: 20px;
+    right: 20px;
+  }
 }
 
 .side-toTop:hover {
@@ -5803,6 +5859,12 @@ select {
   background-color: #84b77c;
 }
 
+@media (max-width: 576px) {
+  .side-topAction a {
+    top: 8rem;
+  }
+}
+
 .side-topAction span {
   position: absolute;
   top: -15px;
@@ -5812,6 +5874,12 @@ select {
 
 .side-topAction.compare a {
   top: 15rem;
+}
+
+@media (max-width: 576px) {
+  .side-topAction.compare a {
+    top: 12rem;
+  }
 }
 
 .login {

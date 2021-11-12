@@ -23,11 +23,12 @@ const Paginations = ({ productPerPage, totalProduct, paginate }) => {
             onChange={handleChange}
             variant="outlined"
             sx={{
+              '& ul': { alignItems: 'center', justifyContent: 'center' },
               '& button.Mui-selected': {
                 background: '#fe4536',
                 color: '#fff',
                 borderColor: '#fe4536',
-                margin: { xs: '10px 0px' },
+
                 '&:hover': {
                   backgroundColor: '#fe4536',
                 },

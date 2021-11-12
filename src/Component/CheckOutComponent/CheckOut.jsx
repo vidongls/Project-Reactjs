@@ -10,7 +10,7 @@ import * as yup from 'yup'
 import { useSelector } from 'react-redux'
 import emailjs from 'emailjs-com'
 import { useHistory } from 'react-router-dom'
-
+import { useSnackbar } from 'notistack'
 const schema = yup.object().shape({
   email: yup
     .string()
@@ -30,7 +30,7 @@ const schema = yup.object().shape({
 
 function CheckOut(props) {
   const [expanded, setExpanded] = useState(false)
-
+  const { enqueueSnackbar } = useSnackbar()
   const form = useRef()
 
   const {
@@ -65,6 +65,15 @@ function CheckOut(props) {
             console.log(error.text)
           }
         )
+      enqueueSnackbar('Đặt hàng thành công', {
+        anchorOrigin: {
+          vertical: 'top',
+          horizontal: 'left',
+        },
+        autoHideDuration: 3000,
+        variant: 'success',
+        // TransitionComponent: Grow,
+      })
     }
   }
 

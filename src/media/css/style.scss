@@ -5,6 +5,7 @@ $text1: #10111e;
 
 * {
   font-family: Rubik, sans-serif;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 
 .container {
@@ -532,7 +533,7 @@ $text1: #10111e;
     max-height: 1000px;
     margin: 0 auto;
     background-color: transparent;
-    z-index: 8;
+    z-index: 99;
     top: 73px;
     transition: all 0.3s ease;
     @include md {
@@ -742,21 +743,23 @@ $text1: #10111e;
 //Slider
 .slider {
   &:hover {
-    .slick-prev,
-    .slick-next {
-      visibility: visible;
-      opacity: 1;
-    }
-    .slick-prev {
-      left: 50px;
-      @include xs {
-        left: 10px;
+    @include sm {
+      .slick-prev,
+      .slick-next {
+        visibility: visible;
+        opacity: 1;
       }
-    }
-    .slick-next {
-      right: 50px;
-      @include xs {
-        right: 10px;
+      .slick-prev {
+        left: 50px;
+        @include xs {
+          left: 10px;
+        }
+      }
+      .slick-next {
+        right: 50px;
+        @include xs {
+          right: 10px;
+        }
       }
     }
   }
@@ -772,6 +775,9 @@ $text1: #10111e;
     visibility: hidden;
     opacity: 0;
     transition: all 0.3s ease;
+    @include xs {
+      display: none;
+    }
     &:hover {
       background-color: $cl1;
       color: #ffffff;
@@ -1592,10 +1598,18 @@ $text1: #10111e;
           &:hover {
             background-color: #84b77c;
           }
+          @include xs {
+            display: none;
+          }
         }
         .btn-viewdetail {
           background-color: #84b77c;
           padding: 23px 30px;
+          @include xs {
+            padding: 20px 30px;
+            line-height: unset;
+            white-space: nowrap;
+          }
         }
       }
     }
@@ -1796,12 +1810,21 @@ $text1: #10111e;
       background: #fff;
       margin-right: 15px;
       box-shadow: 0 16px 32px 0 #e0e2ff4d;
+      @include xs {
+        height: 70px;
+        padding: 0;
+        width: 70px;
+      }
       .time-count {
         font-size: 30px;
         color: #10111e;
         line-height: 1;
         display: block;
         margin-bottom: 10px;
+        @include xs {
+          margin-top: 20px;
+          font-size: 16px;
+        }
       }
       p {
         font-size: 12px;
@@ -2407,6 +2430,13 @@ $text1: #10111e;
     font-size: 16px;
     font-weight: 600;
     color: #9990b8;
+    @include xs {
+      width: 50px;
+      font-size: 14px;
+      line-height: 40px;
+      height: 50px;
+    }
+
     &:hover {
       background: #fe4536;
       border-color: #fe4536;
@@ -4069,7 +4099,7 @@ $text1: #10111e;
 .side {
   &-toTop {
     position: fixed;
-    z-index: 999;
+    z-index: 98;
     display: none;
     bottom: 50px;
     right: 50px;
@@ -4083,6 +4113,10 @@ $text1: #10111e;
     font-size: 18px;
     transition: all 0.3s ease;
     cursor: pointer;
+    @include xs {
+      bottom: 20px;
+      right: 20px;
+    }
     &:hover {
       background-color: $cl1;
     }
@@ -4113,6 +4147,9 @@ $text1: #10111e;
       &:hover {
         background-color: #84b77c;
       }
+      @include xs {
+        top: 8rem;
+      }
     }
     span {
       position: absolute;
@@ -4123,6 +4160,9 @@ $text1: #10111e;
     &.compare {
       a {
         top: 15rem;
+        @include xs {
+          top: 12rem;
+        }
       }
     }
   }
