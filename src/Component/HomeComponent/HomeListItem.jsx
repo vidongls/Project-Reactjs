@@ -135,12 +135,29 @@ function HomeListItem(props) {
   return (
     <div className="wrap-proheader">
       <Grid container spacing={0} className="product">
-        <Grid className="product-header" item xs={12}>
-          <Grid className="product-header__title" item xs={6}>
+        <Grid className="product-header" item xs={12} sx={{}}>
+          <Grid
+            className="product-header__title"
+            item
+            xs={6}
+            sx={{
+              padding: { xs: '0px 15px', sm: '0px 15px', xl: '0' },
+              maxWidth: { xs: '100%', sm: '100%', xl: '50%' },
+            }}
+          >
             <h2>{title}</h2>
             <p>Browse the huge variety of our products</p>
           </Grid>
-          <Grid className="product-header__tab" item xs={6}>
+          <Grid
+            className="product-header__tab"
+            item
+            xs={6}
+            sx={{
+              padding: { xs: '0px 15px', sm: '0px 15px', xl: '0' },
+              maxWidth: { xs: '100%', sm: '100%', xl: '50%' },
+              marginTop: { xs: '20px', sm: '0px' },
+            }}
+          >
             <ProductSort />
           </Grid>
         </Grid>

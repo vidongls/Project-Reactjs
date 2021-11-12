@@ -18,7 +18,11 @@ import CheckOutLayout from './Layouts/CheckOutLayout'
 import ProfileLayout from './Layouts/ProfileLayout'
 import React, { useState, useEffect } from 'react'
 import './media/css/style.css'
-import { StylesProvider, createGenerateClassName } from '@mui/styles'
+
+import {
+  StylesProvider,
+  createGenerateClassName,
+} from '@material-ui/core/styles'
 
 const generateClassName = createGenerateClassName({
   productionPrefix: 'c',
@@ -36,12 +40,12 @@ function App() {
 
   return (
     <>
-      {show ? (
-        <div id="spinner" className="spin">
-          <div className="loading"></div>
-        </div>
-      ) : (
-        <StylesProvider generateClassName={generateClassName}>
+      <StylesProvider generateClassName={generateClassName}>
+        {show ? (
+          <div id="spinner" className="spin">
+            <div className="loading"></div>
+          </div>
+        ) : (
           <Switch>
             <Route path="/" component={HomeLayout} exact></Route>
             <Route path="/home" component={HomeLayout} exact></Route>
@@ -69,8 +73,8 @@ function App() {
             ></Route>
             <Route path="" component={ErrorComponent}></Route>
           </Switch>
-        </StylesProvider>
-      )}
+        )}
+      </StylesProvider>
     </>
   )
 }

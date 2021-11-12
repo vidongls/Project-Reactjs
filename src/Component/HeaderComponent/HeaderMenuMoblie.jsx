@@ -130,8 +130,17 @@ function HeaderMenuMoblie(props) {
 
           <li>
             <Accordion
-              expanded={expanded === 'panel4'}
-              onChange={handleChange('panel4')}
+              expanded={expanded === 'panel1'}
+              onChange={handleChange('panel1')}
+              sx={{
+                backgroundColor: '  #0c1923',
+                borderTop: '1px solid hsla(0, 0%, 100%, 0.5)',
+                '& .Mui-expanded': {
+                  margin: '5px 0',
+                  // marginTop: '10px',
+                  minHeight: '0px',
+                },
+              }}
             >
               <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                 <Typography>
@@ -140,7 +149,14 @@ function HeaderMenuMoblie(props) {
                   </Link>
                 </Typography>
               </AccordionSummary>
-              <AccordionDetails>
+              <AccordionDetails
+                sx={{
+                  backgroundColor: '  #0c1923',
+                  margin: '0px',
+                  paddingTop: '0px',
+                  paddingBottom: '0px',
+                }}
+              >
                 <ul>
                   <li>
                     <Link to="/about">About Us</Link>

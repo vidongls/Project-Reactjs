@@ -12,7 +12,16 @@ function Profile(props) {
         <div className="profile-wrapper">
           <div className="profile-header">
             <h3>
-              <Avatar src="/broken-image.jpg" />
+              <Avatar
+                src="/broken-image.jpg"
+                sx={{
+                  width: '100px',
+                  height: '100px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
+              />
             </h3>
           </div>
           <div className="profile-content">

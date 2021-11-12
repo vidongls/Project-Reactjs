@@ -1137,7 +1137,7 @@ select {
   display: block;
   float: left;
   margin: 0;
-  padding: 10px 5%;
+  padding: 0px 5%;
   text-align: left;
   text-decoration: none;
   text-transform: uppercase;
@@ -1179,14 +1179,14 @@ select {
   text-transform: uppercase;
 }
 
-.menu-mobile__list > ul li .css-15v22id-MuiAccordionDetails-root > ul > li {
-  padding: 5px 0px;
+.menu-mobile__list > ul li ul {
+  background-color: #0c1923;
 }
 
-.menu-mobile__list > ul li .css-15v22id-MuiAccordionDetails-root > ul > li > a {
+.menu-mobile__list > ul li ul li a {
   border-top: 1px solid rgba(255, 255, 255, 0.25);
   opacity: 0.75;
-  padding: 10px 18%;
+  padding: 15px 18%;
   text-shadow: none;
   visibility: visible;
   color: #fff;
@@ -1195,50 +1195,13 @@ select {
 }
 
 @media (min-width: 768px) {
-  .menu-mobile__list > ul li .css-15v22id-MuiAccordionDetails-root > ul > li > a {
-    padding: 10px 13%;
+  .menu-mobile__list > ul li ul li a {
+    padding: 15px 13%;
   }
 }
 
-.menu-mobile__list > ul li .css-15v22id-MuiAccordionDetails-root > ul > li:hover a {
+.menu-mobile__list > ul li ul li:hover a {
   background-color: rgba(255, 255, 255, 0.1);
-}
-
-.menu-mobile__list .css-1elwnq4-MuiPaper-root-MuiAccordion-root {
-  background-color: #0c1923;
-  border: none;
-  border-top: 1px solid rgba(255, 255, 255, 0.5);
-}
-
-.menu-mobile__list .css-1elwnq4-MuiPaper-root-MuiAccordion-root:hover {
-  color: #f00000;
-}
-
-.menu-mobile__list .css-o4b71y-MuiAccordionSummary-content.Mui-expanded {
-  margin: unset;
-}
-
-.menu-mobile__list .css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root.Mui-expanded {
-  min-height: unset;
-}
-
-.menu-mobile__list .css-o4b71y-MuiAccordionSummary-content {
-  margin: 0;
-}
-
-.menu-mobile__list .css-15v22id-MuiAccordionDetails-root > ul > li {
-  padding: 5px 0px;
-}
-
-.menu-mobile__list .css-15v22id-MuiAccordionDetails-root > ul > li > a {
-  border-top: 1px solid rgba(255, 255, 255, 0.25);
-  opacity: 0.75;
-  padding: 10px 10%;
-  text-shadow: none;
-  visibility: visible;
-  color: #fff;
-  display: block;
-  font-size: 12px;
 }
 
 .menu-mobile__list .child-ele {
@@ -1764,13 +1727,14 @@ select {
   display: grid;
   -ms-grid-columns: (1fr)[3];
       grid-template-columns: repeat(3, 1fr);
-  grid-gap: 30px;
 }
 
 @media (max-width: 576px) {
   .banner {
     -ms-grid-columns: (1fr)[1];
         grid-template-columns: repeat(1, 1fr);
+    padding: 24px 15px;
+    grid-gap: 15px;
   }
 }
 
@@ -1778,6 +1742,8 @@ select {
   .banner {
     -ms-grid-columns: (1fr)[1];
         grid-template-columns: repeat(1, 1fr);
+    padding: 24px 15px;
+    grid-gap: 15px;
   }
 }
 
@@ -1785,6 +1751,8 @@ select {
   .banner {
     -ms-grid-columns: (1fr)[2];
         grid-template-columns: repeat(2, 1fr);
+    grid-gap: 30px;
+    padding: 24px 30px;
   }
 }
 
@@ -1892,56 +1860,6 @@ select {
   }
 }
 
-@media (max-width: 576px) {
-  .product-header .css-ayy8wd-MuiGrid-root {
-    padding: 0 15px;
-    max-width: 100% !important;
-  }
-}
-
-@media (min-width: 576px) {
-  .product-header .css-ayy8wd-MuiGrid-root {
-    padding: 0 15px;
-    max-width: 100% !important;
-  }
-}
-
-@media (min-width: 1200px) {
-  .product-header .css-ayy8wd-MuiGrid-root {
-    padding: 0;
-    max-width: 50% !important;
-  }
-}
-
-.product-header .css-heg063-MuiTabs-flexContainer {
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-
-@media (max-width: 576px) {
-  .product-header .css-heg063-MuiTabs-flexContainer {
-    -webkit-box-pack: start !important;
-        -ms-flex-pack: start !important;
-            justify-content: flex-start !important;
-  }
-}
-
-@media (min-width: 576px) {
-  .product-header .css-heg063-MuiTabs-flexContainer {
-    -webkit-box-pack: start !important;
-        -ms-flex-pack: start !important;
-            justify-content: flex-start !important;
-  }
-}
-
-@media (min-width: 992px) {
-  .product-header .css-heg063-MuiTabs-flexContainer {
-    -webkit-box-pack: end !important;
-        -ms-flex-pack: end !important;
-            justify-content: flex-end !important;
-  }
-}
-
 .product-header__title {
   margin-top: -10px !important;
 }
@@ -1969,51 +1887,6 @@ select {
   font-size: 14px;
   font-weight: 400;
   color: #7e7e7e;
-}
-
-.product-header__tab .tab-list {
-  margin-left: 20px;
-  font-size: 14px;
-  color: #10111e;
-  font-weight: 500;
-  padding: 18px 30px;
-  border: 2px solid #ecedff;
-  text-transform: uppercase;
-  line-height: 1;
-  letter-spacing: 2px;
-}
-
-@media (max-width: 576px) {
-  .product-header__tab .tab-list {
-    padding: 12px 16px;
-    margin-left: 10px;
-    font-size: 12px;
-    margin-bottom: 10px;
-  }
-}
-
-@media (min-width: 576px) {
-  .product-header__tab .tab-list {
-    padding: 12px 16px;
-    margin-left: 10px;
-    font-size: 12px;
-  }
-}
-
-@media (min-width: 768px) {
-  .product-header__tab .tab-list {
-    padding: 18px 30px;
-  }
-}
-
-.product-header__tab .tab-list:first-child {
-  margin-left: 0;
-}
-
-.product-header__tab .tab-list.css-1a4cg4j-MuiButtonBase-root-MuiTab-root.Mui-selected {
-  background-color: #fe4536;
-  color: #fff;
-  border: 2px solid #fe4536;
 }
 
 .product-item {
@@ -3741,18 +3614,6 @@ select {
   color: #fff;
 }
 
-.pagination .css-lqq3n7-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
-  background: #fe4536;
-  color: #fff;
-  border-color: #fe4536;
-  -webkit-box-shadow: 0 8px 16px 0 #fe45364d;
-          box-shadow: 0 8px 16px 0 #fe45364d;
-}
-
-.pagination .css-lqq3n7-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected:hover {
-  background: #fe4536;
-}
-
 .sidebar {
   padding: 0 15px;
 }
@@ -3839,16 +3700,6 @@ select {
 
 .sidebar-drag {
   border-bottom: 2px dashed #ede8ff;
-}
-
-.sidebar-drag .css-exkjcx,
-.sidebar-drag .css-187mznn-MuiSlider-root {
-  color: #84b77c;
-}
-
-.sidebar-drag .css-exkjcx span,
-.sidebar-drag .css-187mznn-MuiSlider-root span {
-  color: inherit;
 }
 
 .sidebar-drag__price {
@@ -6858,11 +6709,6 @@ select {
   background-color: #e9e2e2;
 }
 
-.profile-header .css-2s90m6-MuiAvatar-root {
-  width: 100px;
-  height: 100px;
-}
-
 .profile-text {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -6882,8 +6728,8 @@ select {
   margin: 0 auto;
 }
 
-.profile svg {
-  margin-right: 10px;
+.profile-text span {
+  margin-left: 10px;
 }
 
 .refresh-list {

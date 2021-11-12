@@ -30,6 +30,12 @@ function ShopDragFilter(props) {
         min={0}
         max={300}
         className="drag"
+        sx={{
+          color: '#84b77c',
+          '& span': {
+            color: '#84b77c',
+          },
+        }}
       />
 
       <div className="sidebar-drag__price">

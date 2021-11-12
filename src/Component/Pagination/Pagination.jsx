@@ -22,6 +22,16 @@ const Paginations = ({ productPerPage, totalProduct, paginate }) => {
             page={page}
             onChange={handleChange}
             variant="outlined"
+            sx={{
+              '& button.Mui-selected': {
+                background: '#fe4536',
+                color: '#fff',
+                borderColor: '#fe4536',
+                '&:hover': {
+                  backgroundColor: '#fe4536',
+                },
+              },
+            }}
           />
         </Stack>
       </ul>

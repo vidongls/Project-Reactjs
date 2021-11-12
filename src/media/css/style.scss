@@ -554,7 +554,7 @@ $text1: #10111e;
         display: block;
         float: left;
         margin: 0;
-        padding: 10px 5%;
+        padding: 0px 5%;
         text-align: left;
         text-decoration: none;
         text-transform: uppercase;
@@ -579,7 +579,6 @@ $text1: #10111e;
           display: block;
           margin: 0;
           padding: 10px 5%;
-
           text-align: left;
           text-decoration: none;
           text-transform: uppercase;
@@ -593,67 +592,65 @@ $text1: #10111e;
         }
       }
       li {
-        .css-15v22id-MuiAccordionDetails-root {
-          > ul {
-            > li {
-              padding: 5px 0px;
-              > a {
-                border-top: 1px solid hsla(0, 0%, 100%, 0.25);
-                opacity: 0.75;
-                padding: 10px 18%;
-                text-shadow: none;
-                visibility: visible;
-                color: #fff;
-                display: block;
-                font-size: 12px;
-                @include md {
-                  padding: 10px 13%;
-                }
+        ul {
+          background-color: #0c1923;
+          li {
+            a {
+              border-top: 1px solid hsla(0, 0%, 100%, 0.25);
+              opacity: 0.75;
+              padding: 15px 18%;
+              text-shadow: none;
+              visibility: visible;
+              color: #fff;
+              display: block;
+              font-size: 12px;
+              @include md {
+                padding: 15px 13%;
               }
-              &:hover {
-                a {
-                  background-color: rgba(255, 255, 255, 0.1);
-                }
+            }
+            &:hover {
+              a {
+                background-color: rgba(255, 255, 255, 0.1);
               }
             }
           }
         }
       }
     }
-    .css-1elwnq4-MuiPaper-root-MuiAccordion-root {
-      background-color: #0c1923;
-      border: none;
-      border-top: 1px solid hsla(0, 0%, 100%, 0.5);
-      &:hover {
-        color: rgb(240, 0, 0);
-      }
-    }
-    .css-o4b71y-MuiAccordionSummary-content.Mui-expanded {
-      margin: unset;
-    }
-    .css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root.Mui-expanded {
-      min-height: unset;
-    }
-    .css-o4b71y-MuiAccordionSummary-content {
-      margin: 0;
-    }
-    .css-15v22id-MuiAccordionDetails-root {
-      > ul {
-        > li {
-          padding: 5px 0px;
-          > a {
-            border-top: 1px solid hsla(0, 0%, 100%, 0.25);
-            opacity: 0.75;
-            padding: 10px 10%;
-            text-shadow: none;
-            visibility: visible;
-            color: #fff;
-            display: block;
-            font-size: 12px;
-          }
-        }
-      }
-    }
+    // .css-1elwnq4-MuiPaper-root-MuiAccordion-root {
+    //   background-color: #0c1923;
+    //   border: none;
+    //   border-top: 1px solid hsla(0, 0%, 100%, 0.5);
+    //   &:hover {
+    //     color: rgb(240, 0, 0);
+    //   }
+    // }
+    // .css-o4b71y-MuiAccordionSummary-content.Mui-expanded {
+    //   margin: unset;
+    // }
+    // .css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root.Mui-expanded {
+    //   min-height: unset;
+    // }
+    // .css-o4b71y-MuiAccordionSummary-content {
+    //   margin: 0;
+    // }
+    // .css-15v22id-MuiAccordionDetails-root {
+    //   > ul {
+    //     > li {
+    //       padding: 5px 0px;
+    //       > a {
+    //         border-top: 1px solid hsla(0, 0%, 100%, 0.25);
+    //         opacity: 0.75;
+    //         padding: 10px 10%;
+    //         text-shadow: none;
+    //         visibility: visible;
+    //         color: #fff;
+    //         display: block;
+    //         font-size: 12px;
+    //       }
+    //     }
+    //   }
+    // }
     .child-ele {
       border-top: 1px solid hsla(0, 0%, 100%, 0.25);
       p {
@@ -1029,17 +1026,23 @@ $text1: #10111e;
   grid-template-columns: repeat(3, 1fr);
   @include xs {
     grid-template-columns: repeat(1, 1fr);
+    padding: 24px 15px;
+    grid-gap: 15px;
   }
   @include sm {
     grid-template-columns: repeat(1, 1fr);
+    padding: 24px 15px;
+    grid-gap: 15px;
   }
   @include md {
     grid-template-columns: repeat(2, 1fr);
+    grid-gap: 30px;
+    padding: 24px 30px;
   }
   @include lg {
     grid-template-columns: repeat(3, 1fr);
   }
-  grid-gap: 30px;
+
   &-item {
     overflow: hidden;
     cursor: pointer;
@@ -1099,32 +1102,32 @@ $text1: #10111e;
     @include xl {
       flex-direction: row !important;
     }
-    .css-ayy8wd-MuiGrid-root {
-      @include xs {
-        padding: 0 15px;
-        max-width: 100% !important;
-      }
-      @include sm {
-        padding: 0 15px;
-        max-width: 100% !important;
-      }
-      @include xl {
-        padding: 0;
-        max-width: 50% !important;
-      }
-    }
-    .css-heg063-MuiTabs-flexContainer {
-      flex-wrap: wrap;
-      @include xs {
-        justify-content: flex-start !important;
-      }
-      @include sm {
-        justify-content: flex-start !important;
-      }
-      @include lg {
-        justify-content: flex-end !important;
-      }
-    }
+    // .css-ayy8wd-MuiGrid-root {
+    //   @include xs {
+    //     padding: 0 15px;
+    //     max-width: 100% !important;
+    //   }
+    //   @include sm {
+    //     padding: 0 15px;
+    //     max-width: 100% !important;
+    //   }
+    //   @include xl {
+    //     padding: 0;
+    //     max-width: 50% !important;
+    //   }
+    // }
+    // .css-heg063-MuiTabs-flexContainer {
+    //   flex-wrap: wrap;
+    //   @include xs {
+    //     justify-content: flex-start !important;
+    //   }
+    //   @include sm {
+    //     justify-content: flex-start !important;
+    //   }
+    //   @include lg {
+    //     justify-content: flex-end !important;
+    //   }
+    // }
 
     &__title {
       margin-top: -10px !important;
@@ -1148,37 +1151,38 @@ $text1: #10111e;
     }
     &__tab {
       .tab-list {
-        margin-left: 20px;
-        font-size: 14px;
-        color: #10111e;
-        font-weight: 500;
-        padding: 18px 30px;
-        border: 2px solid #ecedff;
-        text-transform: uppercase;
-        line-height: 1;
-        letter-spacing: 2px;
-        @include xs {
-          padding: 12px 16px;
-          margin-left: 10px;
-          font-size: 12px;
-          margin-bottom: 10px;
-        }
-        @include sm {
-          padding: 12px 16px;
-          margin-left: 10px;
-          font-size: 12px;
-        }
-        @include md {
-          padding: 18px 30px;
-        }
-        &:first-child {
-          margin-left: 0;
-        }
-        &.css-1a4cg4j-MuiButtonBase-root-MuiTab-root.Mui-selected {
-          background-color: $cl1;
-          color: #fff;
-          border: 2px solid $cl1;
-        }
+        // margin-left: 20px;
+        // font-size: 14px;
+        // color: #10111e;
+        // font-weight: 500;
+        // padding: 18px 30px;
+        // border: 2px solid #ecedff;
+        // text-transform: uppercase;
+        // line-height: 1;
+        // letter-spacing: 2px;
+        // @include xs {
+        //   padding: 12px 16px;
+        //   margin-left: 10px;
+        //   font-size: 12px;
+        //   margin-bottom: 10px;
+        // }
+        // @include sm {
+        //   padding: 12px 16px;
+        //   margin-left: 10px;
+        //   font-size: 12px;
+        // }
+        // @include md {
+        //   padding: 18px 30px;
+        // }
+        // &:first-child {
+        //   margin-left: 0;
+        // }
+        // &.css-1a4cg4j-MuiButtonBase-root-MuiTab-root.Mui-selected,
+        // .css-1mrn996.Mui-selected {
+        //   background-color: $cl1;
+        //   color: #fff;
+        //   border: 2px solid $cl1;
+        // }
       }
     }
   }
@@ -2410,15 +2414,15 @@ $text1: #10111e;
       color: #fff;
     }
   }
-  .css-lqq3n7-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
-    background: #fe4536;
-    color: #fff;
-    border-color: #fe4536;
-    box-shadow: 0 8px 16px 0 #fe45364d;
-    &:hover {
-      background: #fe4536;
-    }
-  }
+  // .css-lqq3n7-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+  //   background: #fe4536;
+  //   color: #fff;
+  //   border-color: #fe4536;
+  //   box-shadow: 0 8px 16px 0 #fe45364d;
+  //   &:hover {
+  //     background: #fe4536;
+  //   }
+  // }
 }
 //***********************
 //Sidebar
@@ -2495,14 +2499,6 @@ $text1: #10111e;
   }
   &-drag {
     border-bottom: 2px dashed #ede8ff;
-    .css-exkjcx,
-    .css-187mznn-MuiSlider-root {
-      color: #84b77c;
-      span {
-        color: inherit;
-      }
-    }
-
     &__price {
       font-size: 16px;
       font-weight: normal;
@@ -4856,10 +4852,10 @@ $text1: #10111e;
       width: 80%;
       background-color: #e9e2e2;
     }
-    .css-2s90m6-MuiAvatar-root {
-      width: 100px;
-      height: 100px;
-    }
+    // .css-2s90m6-MuiAvatar-root {
+    //   width: 100px;
+    //   height: 100px;
+    // }
   }
   &-text {
     display: flex;
@@ -4872,9 +4868,9 @@ $text1: #10111e;
     color: #aaabc4;
     font-weight: 500;
     margin: 0 auto;
-  }
-  svg {
-    margin-right: 10px;
+    span {
+      margin-left: 10px;
+    }
   }
 }
 .refresh-list {
