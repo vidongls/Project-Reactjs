@@ -141,9 +141,9 @@ function CartComponent(props) {
                 </form>
               </div>
               <div className="cart-coupon__coupon2">
-                <Link className="btn" to="/checkout">
+                {/* <Link className="btn" to="/checkout">
                   Submit
-                </Link>
+                </Link> */}
               </div>
             </div>
             <div className="cart-checkout">

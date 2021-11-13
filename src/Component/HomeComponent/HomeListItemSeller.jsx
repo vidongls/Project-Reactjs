@@ -122,6 +122,7 @@ function HomeListItemSeller(props) {
           slidesToShow: 1,
           slidesToScroll: 1,
           rows: 1,
+          centerMode: true,
         },
       },
     ],

@@ -28,7 +28,6 @@ const Paginations = ({ productPerPage, totalProduct, paginate }) => {
                 background: '#fe4536',
                 color: '#fff',
                 borderColor: '#fe4536',
-
                 '&:hover': {
                   backgroundColor: '#fe4536',
                 },

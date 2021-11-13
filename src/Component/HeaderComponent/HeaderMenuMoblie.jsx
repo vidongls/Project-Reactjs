@@ -159,9 +159,6 @@ function HeaderMenuMoblie(props) {
               >
                 <ul>
                   <li>
-                    <Link to="/about">About Us</Link>
-                  </li>
-                  <li>
                     <Link to="/contact">Contact Us</Link>
                   </li>
                   <li>
@@ -175,9 +172,6 @@ function HeaderMenuMoblie(props) {
                   </li>
                   <li>
                     <Link to="/compare">Compare</Link>
-                  </li>
-                  <li>
-                    <Link to="/">Order Success</Link>
                   </li>
                 </ul>
               </AccordionDetails>
