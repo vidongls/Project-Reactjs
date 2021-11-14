@@ -10,13 +10,10 @@ import HomeContact from '../Component/HomeComponent/HomeContact'
 import Footer from '../Component/Footer/Footer'
 import SideAction from '../Component/SideAction/SideAction'
 import HomeListItemSeller from '../Component/HomeComponent/HomeListItemSeller'
-import { ThemeProvider } from '@material-ui/core/styles'
-const theme = {
-  background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-}
+
 function HomeLayout(props) {
   return (
-    <ThemeProvider theme={theme}>
+    <>
       <SideAction />
       <Header />
       <HomeSlider />
@@ -28,7 +25,7 @@ function HomeLayout(props) {
       <HomeNewFeeds />
       <HomeContact />
       <Footer checkimg={false} />
-    </ThemeProvider>
+    </>
   )
 }
 

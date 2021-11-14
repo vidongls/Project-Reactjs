@@ -107,44 +107,35 @@ function HomeItemAction(props) {
               <div className="modal-body">
                 <div>
                   {products.images ? (
-                    <>
-                      {' '}
-                      <TabContext value={value}>
-                        <div className="modal-image">
-                          <TabPanel value="1">
-                            <img src={products.images[0].src} alt="" />
-                          </TabPanel>
-                          <TabPanel value="2">
-                            <img src={products.images[1].src} alt="" />
-                          </TabPanel>
-                          <TabPanel value="3">
-                            <img src={products.images[2].src} alt="" />
-                          </TabPanel>
-                        </div>
-                        <div className="modal-image">
-                          <TabList onChange={handleChange} aria-label="">
-                            <Tab
-                              label={
-                                <img src={products.images[0].src} alt="" />
-                              }
-                              value="1"
-                            />
-                            <Tab
-                              label={
-                                <img src={products.images[1].src} alt="" />
-                              }
-                              value="2"
-                            />
-                            <Tab
-                              label={
-                                <img src={products.images[2].src} alt="" />
-                              }
-                              value="3"
-                            />
-                          </TabList>
-                        </div>
-                      </TabContext>
-                    </>
+                    <TabContext value={value}>
+                      <div className="modal-image">
+                        <TabPanel value="1">
+                          <img src={products.images[0].src} alt="" />
+                        </TabPanel>
+                        <TabPanel value="2">
+                          <img src={products.images[1].src} alt="" />
+                        </TabPanel>
+                        <TabPanel value="3">
+                          <img src={products.images[2].src} alt="" />
+                        </TabPanel>
+                      </div>
+                      <div className="modal-image">
+                        <TabList onChange={handleChange} aria-label="">
+                          <Tab
+                            label={<img src={products.images[0].src} alt="" />}
+                            value="1"
+                          />
+                          <Tab
+                            label={<img src={products.images[1].src} alt="" />}
+                            value="2"
+                          />
+                          <Tab
+                            label={<img src={products.images[2].src} alt="" />}
+                            value="3"
+                          />
+                        </TabList>
+                      </div>
+                    </TabContext>
                   ) : null}
                 </div>
                 <div>

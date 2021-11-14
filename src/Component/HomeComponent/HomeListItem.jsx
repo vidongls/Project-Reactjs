@@ -135,8 +135,8 @@ function HomeListItem(props) {
   }
   return (
     <div className="wrap-proheader">
-      <Grid container spacing={0} className="product">
-        <Grid className="product-header" item xs={12} sx={{}}>
+      <Grid container className="product">
+        <Grid className="product-header" item xs={12}>
           <Grid
             className="product-header__title"
             item
@@ -170,7 +170,6 @@ function HomeListItem(props) {
                   <div className="product-item" key={index}>
                     <div className="product-img">
                       <Link to={`/details/${item.id}`}>
-                        {' '}
                         <img
                           src={item.img1}
                           className="product-img__first"

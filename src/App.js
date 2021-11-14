@@ -19,15 +19,6 @@ import ProfileLayout from './Layouts/ProfileLayout'
 import React, { useState, useEffect } from 'react'
 import './media/css/style.css'
 
-import {
-  StylesProvider,
-  createGenerateClassName,
-} from '@material-ui/core/styles'
-
-const generateClassName = createGenerateClassName({
-  productionPrefix: 'c',
-})
-
 function App() {
   const [show, setShow] = useState(true)
 
@@ -40,41 +31,39 @@ function App() {
 
   return (
     <>
-      <StylesProvider generateClassName={generateClassName}>
-        {show ? (
-          <div id="spinner" className="spin">
-            <div className="loading"></div>
-          </div>
-        ) : (
-          <Switch>
-            <Route path="/" component={HomeLayout} exact></Route>
-            <Route path="/home" component={HomeLayout} exact></Route>
-            <Route path="/shop" component={ShopLayout} exact></Route>
-            <Route path="/products" component={ProductLayout} exact></Route>
-            <Route path="/blog" component={BlogLayout} exact></Route>
-            <Route path="/pages" component={PageLayout} exact></Route>
-            <Route path="/contact" component={ContactLayout} exact></Route>
-            <Route path="/cart" component={CartLayout} exact></Route>
-            <Route path="/login" component={LoginLayout} exact></Route>
-            <Route path="/register" component={RegisterLayout} exact></Route>
-            <Route path="/wishlist" component={WishListLayout} exact></Route>
-            <Route path="/compare" component={CompareLayout} exact></Route>
-            <Route path="/checkout" component={CheckOutLayout} exact></Route>
-            <Route path="/profile" component={ProfileLayout} exact></Route>
-            <Route
-              path="/details/:productID"
-              component={DetailLayout}
-              exact
-            ></Route>
-            <Route
-              path="/detail-post/:postID"
-              component={BlogDetailLayout}
-              exact
-            ></Route>
-            <Route path="" component={ErrorComponent}></Route>
-          </Switch>
-        )}
-      </StylesProvider>
+      {show ? (
+        <div id="spinner" className="spin">
+          <div className="loading"></div>
+        </div>
+      ) : (
+        <Switch>
+          <Route path="/" component={HomeLayout} exact></Route>
+          <Route path="/home" component={HomeLayout} exact></Route>
+          <Route path="/shop" component={ShopLayout} exact></Route>
+          <Route path="/products" component={ProductLayout} exact></Route>
+          <Route path="/blog" component={BlogLayout} exact></Route>
+          <Route path="/pages" component={PageLayout} exact></Route>
+          <Route path="/contact" component={ContactLayout} exact></Route>
+          <Route path="/cart" component={CartLayout} exact></Route>
+          <Route path="/login" component={LoginLayout} exact></Route>
+          <Route path="/register" component={RegisterLayout} exact></Route>
+          <Route path="/wishlist" component={WishListLayout} exact></Route>
+          <Route path="/compare" component={CompareLayout} exact></Route>
+          <Route path="/checkout" component={CheckOutLayout} exact></Route>
+          <Route path="/profile" component={ProfileLayout} exact></Route>
+          <Route
+            path="/details/:productID"
+            component={DetailLayout}
+            exact
+          ></Route>
+          <Route
+            path="/detail-post/:postID"
+            component={BlogDetailLayout}
+            exact
+          ></Route>
+          <Route path="" component={ErrorComponent}></Route>
+        </Switch>
+      )}
     </>
   )
 }
